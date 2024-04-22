@@ -1,0 +1,203 @@
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: black;
+  color: #f0f0f0;
+  font-family: "Inter";
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Decentralized Governance */
+
+.heading {
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 84px;
+  text-align: center;
+
+  /* gradient-01 */
+  background: linear-gradient(90deg, #f0f0f0 0%, #c5c5c5 42.42%, #8a8a8a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Ensure democratic governance, privacy, security, and fair compensation for data contributors */
+
+.subheading {
+  max-width: 655px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 27px;
+  text-align: center;
+
+  color: #d4d4d4;
+}
+
+/* EARLY-BIRD REGISTRATION */
+@layer components {
+  .btn--primary {
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #553ffa 0%, #322594 100%);
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #f6f6f6;
+    display: flex;
+    font-family: "Inter";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    min-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+    padding: 0 32px;
+  }
+
+  .btn--secondary {
+    align-items: center;
+    justify-content: center;
+    color: #f6f6f6;
+    display: flex;
+    font-family: "Inter";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    min-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+    padding: 0 32px;
+
+    background: linear-gradient(
+      180deg,
+      rgba(87, 23, 169, 0.4) 80.51%,
+      rgba(66, 17, 128, 0.4) 100%
+    );
+    border: 1px solid #d7cde2;
+    /* Effect/Drop Shadow 4 */
+    box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15),
+      0px 2px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+  }
+}
+
+.card-common {
+  background-color: #27272a;
+
+  .title {
+    color: #e8e8e8;
+  }
+
+  .body {
+    color: #b7b7b8;
+  }
+
+  .show-more {
+    opacity: 0;
+  }
+
+  .tag {
+    &--infra,
+    &--bridge {
+      border-color: #836ef9;
+    }
+
+    &--ai {
+      border-color: #5feddf;
+    }
+
+    &--dexs {
+      border-color: #61004f;
+    }
+
+    &--nft {
+      border-color: #a0055d;
+    }
+
+    &--defi {
+      border-color: #f7ede8;
+    }
+  }
+
+  &:hover {
+    background-color: #464649;
+
+    .show-more {
+      opacity: 1;
+    }
+  }
+}
+
+.block-item {
+  display: grid;
+  grid-template-columns: 56px 1fr 80px;
+  gap: 0px 0px;
+}
+
+.tab-content {
+  background-color: #202023;
+
+  .body {
+    color: #b7b7b8;
+  }
+
+  .stat {
+    .label {
+      color: #89ff8e;
+    }
+
+    .number {
+      color: #b7b7b8;
+    }
+  }
+}
+
+.modal {
+  background-color: #161619;
+
+  .btn--close {
+    background-color: transparent;
+    padding: 0;
+    outline: none;
+  }
+}

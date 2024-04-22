@@ -1,0 +1,4 @@
+// .babelrc or babel.config.js
+{
+  "plugins": ["babel-plugin-glsl", "macros", "module:@react-three/babel"]
+}
