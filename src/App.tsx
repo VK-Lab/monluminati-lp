@@ -4,12 +4,16 @@ import SocialLinks from "./components/SocialLinks";
 import Card from "./components/Card";
 import BlockItem from "./components/BlockItem";
 import ProjectDetailModal from "./components/ProjectDetailModal";
+import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
 import "./App.css";
 
 function App() {
+  const [isProjectDetailModalOpen, setProjectDetailModal] = useState(false);
+
   return (
     <div className="root--skeleton">
-      <div className="relative z-[10] flex items-center absolute z-[1] left-4 top-4 w-full">
+      {/* <div className="relative z-[10] flex items-center absolute z-[1] left-4 top-4 w-full">
         <a className="" href="#">
           <img src={logo} alt="CrossX" className="p-0 logo h-[32px]" />
         </a>
@@ -57,7 +61,9 @@ function App() {
           <button className="btn--primary">Early-bird Registration</button>
           <button className="btn--primary">Join Community</button>
         </div>
-      </div>
+      </div> */}
+      <Header />
+      <HeroSection />
       <div className="section--project-list">
         <div className="container mx-auto text-left">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -75,7 +81,9 @@ function App() {
             <div className="">
               <div className="tabs-wrapper mb-4">
                 <div className="flex items-center">
-                  <div className="font-semibold p-2 px-6 border-b border-indigo-500 border-b-4">Popular</div>
+                  <div className="font-semibold p-2 px-6 border-b border-indigo-500 border-b-4">
+                    Popular
+                  </div>
                   <div className="font-semibold p-2 px-6">Newest</div>
                 </div>
               </div>
@@ -83,7 +91,10 @@ function App() {
                 <div className="grid grid-cols-1 gap-0">
                   {new Array(10).fill(1).map((item, index) => {
                     return (
-                      <div key={`block--${index}`} className="rounded rounded-xl">
+                      <div
+                        key={`block--${index}`}
+                        className="rounded rounded-xl"
+                      >
                         <BlockItem title={`Title ${index}`} />
                       </div>
                     );
@@ -95,7 +106,10 @@ function App() {
         </div>
       </div>
       {/* <div className="section--technical" style={{ height: 3500 }}></div> */}
-      <ProjectDetailModal />
+      <ProjectDetailModal
+        isOpen={isProjectDetailModalOpen}
+        onClose={() => setProjectDetailModal(false)}
+      />
     </div>
   );
 }

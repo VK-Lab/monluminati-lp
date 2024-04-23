@@ -6,7 +6,11 @@ import iconDiscord from "../assets/social--discord.svg";
 import iconTelegram from "../assets/social--telegram.svg";
 import btnClose from "../assets/btn--close.svg"
 
-const ProjectDetailModal = ({ project, onClose }: any) => {
+const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <Modal className="max-w-[768px]">
       <div className="cover relative z-[1]">
