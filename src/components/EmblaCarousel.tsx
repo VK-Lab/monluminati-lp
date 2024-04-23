@@ -1,16 +1,19 @@
-import React from 'react'
-import { EmblaOptionsType } from 'embla-carousel'
-import useEmblaCarousel from 'embla-carousel-react'
+import React from "react";
+import { EmblaOptionsType } from "embla-carousel";
+import useEmblaCarousel from "embla-carousel-react";
+import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import CardCompact from "./CardCompact";
 
 type PropType = {
-  slides: number[]
-  options?: EmblaOptionsType
-}
+  slides: number[];
+  options?: EmblaOptionsType;
+};
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props
-  const [emblaRef, emblaApi] = useEmblaCarousel(options)
+  const { slides, options } = props;
+  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const { selectedIndex, scrollSnaps, onDotButtonClick } =
+    useDotButton(emblaApi);
 
   return (
     <section className="embla">
@@ -24,8 +27,21 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           ))}
         </div>
       </div>
+      <div className="embla__controls">
+        <div className="embla__dots">
+          {scrollSnaps.map((_, index) => (
+            <DotButton
+              key={index}
+              onClick={() => onDotButtonClick(index)}
+              className={"embla__dot transition".concat(
+                index === selectedIndex ? " embla__dot--selected" : ""
+              )}
+            />
+          ))}
+        </div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default EmblaCarousel
+export default EmblaCarousel;

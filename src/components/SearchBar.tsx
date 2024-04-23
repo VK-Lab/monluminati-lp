@@ -1,6 +1,6 @@
 const SearchBar = () => {
   return (
-    <div className="relative mx-auto text-gray-400 mb-8">
+    <div className="relative mx-auto text-gray-400 mb-8 shadow-xl">
       <input
         className="h-[56px] w-full border-none h-10 px-5 pl-14 rounded-md text-sm focus:outline-none"
         type="search"

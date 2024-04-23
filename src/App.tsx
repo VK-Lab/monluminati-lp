@@ -1,16 +1,19 @@
 import { useCallback, useState } from "react";
-import logo from "./assets/logo--monad.svg";
-import SocialLinks from "./components/SocialLinks";
 import Card from "./components/Card";
 import BlockItem from "./components/BlockItem";
 import ProjectDetailModal from "./components/ProjectDetailModal";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import SearchBar from "./components/SearchBar";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
   const [isProjectDetailModalOpen, setProjectDetailModal] = useState(false);
+  const onViewProjectDetail = (id: string) => {
+    console.log(">> Id: ", id);
+    setProjectDetailModal(true);
+  }
 
   return (
     <div className="root--skeleton">
@@ -25,7 +28,7 @@ function App() {
                 {new Array(12).fill(1).map((item, index) => {
                   return (
                     <div key={`card--${index}`} className="rounded rounded-xl">
-                      <Card />
+                      <Card onClick={onViewProjectDetail} />
                     </div>
                   );
                 })}
@@ -59,11 +62,11 @@ function App() {
           </div>
         </div>
       </div>
-      {/* <div className="section--technical" style={{ height: 3500 }}></div> */}
       <ProjectDetailModal
         isOpen={isProjectDetailModalOpen}
         onClose={() => setProjectDetailModal(false)}
       />
+      <Footer />
     </div>
   );
 }

@@ -4,11 +4,14 @@
 @tailwind utilities;
 
 body {
-  background: #1E2033;
+  background-image: url("./assets/bg-1.png");
+  background-color: #17192b;
   color: #f0f0f0;
   font-family: "Inter";
   min-width: 320px;
   min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 @media (min-width: 1536px) {
@@ -75,13 +78,13 @@ body {
 /* EARLY-BIRD REGISTRATION */
 @layer components {
   .heading {
-    color: #9C8CFA;
+    color: var(--regular-background);
     font-weight: 600;
     font-size: 40px;
   }
 
   .color--primary {
-    color: #9C8CFA;
+    color: var(--regular-background);
   }
 
   .btn--primary {

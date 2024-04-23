@@ -4,9 +4,9 @@ import iconX from "../assets/social--x.svg";
 import iconDiscord from "../assets/social--discord.svg";
 import iconTelegram from "../assets/social--telegram.svg";
 
-const Card = ({ title, description, tag }: any) => {
+const Card = ({ onClick, tag }: any) => {
   return (
-    <div className="transition card-common p-5 relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border shadow-2xl border border-white/25 rounded rounded-lg">
+    <div onClick={onClick} className="cursor-pointer transition card-common p-5 relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border shadow-2xl border border-white/25 rounded rounded-lg">
       <div className="relative m-0 w-[150px] shrink-0 overflow-hidden rounded-xl rounded-r-none bg-clip-border">
         <div className="rounded mb-1">
           <img
@@ -56,28 +56,26 @@ const Card = ({ title, description, tag }: any) => {
           selling licenses.
         </p>
         <div className="text-right">
-          <a className="inline-block" href="#">
-            <button
-              className="show-more rounded-full flex select-none items-center gap-2 rounded-lg p-3 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:opacity-100 hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
+          <button
+            className="ml-auto show-more rounded-full flex select-none items-center gap-2 rounded-lg p-3 text-center align-middle font-sans text-xs font-bold uppercase text-indigo-500 transition-all hover:opacity-100 hover:bg-indigo-500/10 active:bg-indigo-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              className="h-4 w-4"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                aria-hidden="true"
-                className="h-4 w-4"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                ></path>
-              </svg>
-            </button>
-          </a>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              ></path>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
