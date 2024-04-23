@@ -13,61 +13,13 @@ function App() {
 
   return (
     <div className="root--skeleton">
-      {/* <div className="relative z-[10] flex items-center absolute z-[1] left-4 top-4 w-full">
-        <a className="" href="#">
-          <img src={logo} alt="CrossX" className="p-0 logo h-[32px]" />
-        </a>
-        <div className="ml-auto flex items-center">
-          <div className="menu-wrapper mr-4">
-            <ul className="menu flex items-center text-white">
-              <li>
-                <a
-                  className="transition p-4 text-white font-semibold"
-                  href="#about"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  className="transition p-4 text-white font-semibold"
-                  href="#features"
-                >
-                  How it works
-                </a>
-              </li>
-              <li>
-                <a
-                  className="transition p-4 text-white font-semibold"
-                  href="#features"
-                >
-                  Whitepaper
-                </a>
-              </li>
-            </ul>
-          </div>
-          <SocialLinks />
-        </div>
-      </div>
-      <div className="relative section--hero text-center z-[10]">
-        <div className="heading mb-4">
-          Decentralized Governance <br /> of AI through DAOs
-        </div>
-        <div className="subheading text-center mx-auto">
-          Ensure democratic governance, privacy, security, and fair compensation
-          for data contributors
-        </div>
-        <div className="btns--wrapper">
-          <button className="btn--primary">Early-bird Registration</button>
-          <button className="btn--primary">Join Community</button>
-        </div>
-      </div> */}
       <Header />
       <HeroSection />
       <div className="section--project-list">
         <div className="container mx-auto text-left">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="sm:col-span-2">
+              <h2 className="text-3xl sm:text-[40px] mb-4 font-semibold color--primary">Into the Nads world</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {new Array(12).fill(1).map((item, index) => {
                   return (

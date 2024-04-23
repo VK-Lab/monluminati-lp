@@ -1,8 +1,10 @@
+@import "./assets/styles/embla-carousel.css";
+
 @tailwind components;
 @tailwind utilities;
 
 body {
-  background: #200052;
+  background: #1E2033;
   color: #f0f0f0;
   font-family: "Inter";
   min-width: 320px;
@@ -72,6 +74,16 @@ body {
 
 /* EARLY-BIRD REGISTRATION */
 @layer components {
+  .heading {
+    color: #9C8CFA;
+    font-weight: 600;
+    font-size: 40px;
+  }
+
+  .color--primary {
+    color: #9C8CFA;
+  }
+
   .btn--primary {
     align-items: center;
     justify-content: center;
@@ -124,7 +136,7 @@ body {
 }
 
 .card-common {
-  background-color: #27272a;
+  background-color: #151727;
 
   .title {
     color: #e8e8e8;
@@ -162,7 +174,7 @@ body {
   }
 
   &:hover {
-    background-color: #464649;
+    background-color: #1f223b;
 
     .show-more {
       opacity: 1;

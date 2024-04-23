@@ -6,7 +6,7 @@ import iconTelegram from "../assets/social--telegram.svg";
 
 const Card = ({ title, description, tag }: any) => {
   return (
-    <div className="transition card-common p-5 relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border shadow-md">
+    <div className="transition card-common p-5 relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border shadow-2xl border border-white/25 rounded rounded-lg">
       <div className="relative m-0 w-[150px] shrink-0 overflow-hidden rounded-xl rounded-r-none bg-clip-border">
         <div className="rounded mb-1">
           <img
@@ -37,7 +37,7 @@ const Card = ({ title, description, tag }: any) => {
           startups
         </h6>
         <div className="category-wrapper flex items-center mb-3">
-          <span className={cn("font-semibold badge-chip border-2 border rounded p-1 leading-none text-xs", {
+          <span className={cn("font-semibold badge-chip border-2 border rounded p-1 px-1.5 leading-none text-xs", {
             "tag--infra": tag === "infra",
             "tag--bridge": tag === "bridge",
             "tag--dexs": tag === "dexs",
@@ -50,7 +50,7 @@ const Card = ({ title, description, tag }: any) => {
           </span>
         </div>
 
-        <p className="body block font-sans text-sm font-normal leading-relaxed  antialiased">
+        <p className="body font-sans text-sm font-normal leading-relaxed antialiased line-clamp-4">
           Like so many organizations these days, Autodesk is a company in
           transition. It was until recently a traditional boxed software company
           selling licenses.

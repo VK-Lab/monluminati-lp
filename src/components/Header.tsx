@@ -7,7 +7,7 @@ import iconTelegram from "../assets/social--telegram.svg";
 const Header = () => {
   return (
     <header>
-      <nav className="fixed z-20 w-full bg-[#111113]/90 dark:bg-gray-900/80 backdrop-blur navbar shadow-2xl shadow-gray-600/5 border-b border-gray-100 dark:border-gray-800 peer-checked:navbar-active dark:shadow-none">
+      <nav className="fixed z-20 w-full bg-[#111113]/90 backdrop-blur navbar shadow-2xl shadow-gray-600/5 border-b border-gray-100 dark:border-gray-800 peer-checked:navbar-active dark:shadow-none">
         <div className="xl:container m-auto px-6 md:px-12 lg:px-6">
           <div className="flex flex-wrap items-center justify-between gap-6 md:py-3 md:gap-0 lg:py-5">
             <div className="w-full items-center flex justify-between lg:w-auto">
