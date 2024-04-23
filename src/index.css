@@ -18,6 +18,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --common-background: #151727;
+  --common-background-hover: #1f223b;
+  --common-background-hover-dark: #0f1121;
 }
 
 

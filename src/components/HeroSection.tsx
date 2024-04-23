@@ -17,10 +17,10 @@ const HeroSection = () => {
               Discover everything in the Monad Ecosystem
             </p>
             <div className="mb-10 flex items-center gap-x-4 justify-center md:justify-start">
-              <button className="btn--primary min-w-[160px] md:w-[250px] md:h-[64px] text-center border border-white/80 text-base sm:text-lg md:text-2xl">
+              <button className="btn--primary min-w-[160px] md:w-[250px] md:h-[64px] text-center border border-white/80 text-base sm:text-lg md:text-xl capitalize">
                 Explore
               </button>
-              <button className="btn--secondary min-w-[160px] md:w-[250px] md:h-[64px] text-center border border-white/80 text-base sm:text-lg md:text-2xl">
+              <button className="btn--secondary min-w-[160px] md:w-[250px] md:h-[64px] text-center border border-white/80 text-base sm:text-lg md:text-xl capitalize">
                 Follow Us
               </button>
             </div>

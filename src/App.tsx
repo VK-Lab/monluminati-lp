@@ -6,6 +6,7 @@ import BlockItem from "./components/BlockItem";
 import ProjectDetailModal from "./components/ProjectDetailModal";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
+import SearchBar from "./components/SearchBar";
 import "./App.css";
 
 function App() {
@@ -17,9 +18,9 @@ function App() {
       <HeroSection />
       <div className="section--project-list">
         <div className="container mx-auto text-left">
+          <h2 className="mb-10 text-3xl sm:text-[40px] font-semibold color--primary">Into the Nads world</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="sm:col-span-2">
-              <h2 className="text-3xl sm:text-[40px] mb-4 font-semibold color--primary">Into the Nads world</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {new Array(12).fill(1).map((item, index) => {
                   return (
@@ -31,12 +32,13 @@ function App() {
               </div>
             </div>
             <div className="">
+              <SearchBar />
               <div className="tabs-wrapper mb-4">
                 <div className="flex items-center">
-                  <div className="font-semibold p-2 px-6 border-b border-indigo-500 border-b-4">
-                    Popular
+                  <div className="font-semibold p-2 px-6 border-b border-indigo-500 border-b-4 text-lg">
+                    Communities
                   </div>
-                  <div className="font-semibold p-2 px-6">Newest</div>
+                  <div className="font-semibold p-2 px-6 text-lg">Top Nads</div>
                 </div>
               </div>
               <div className="tab-content">

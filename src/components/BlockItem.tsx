@@ -19,7 +19,7 @@ const BlockItem: React.FC = ({ title }) => {
         <h6 className="mb-2 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal antialiased">
           {title}
         </h6>
-        <div className="body text-sm">
+        <div className="body text-sm line-clamp-3">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, nostrum.
         </div>
       </div>
