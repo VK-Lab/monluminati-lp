@@ -13,10 +13,10 @@ const CardCompact = ({ title, description, tag }: any) => {
         </div>
       </div>
       <div className="px-3 text-left">
-        <h6 className="mt-2 mb-1 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal antialiased">
+        <h6 className="mt-2 mb-1 block   text-base font-semibold uppercase leading-relaxed tracking-normal antialiased">
           startups
         </h6>
-        <p className="body font-sans text-sm font-normal leading-relaxed antialiased line-clamp-2">
+        <p className="body   text-sm font-normal leading-relaxed antialiased line-clamp-2">
           Like so many organizations these days, Autodesk is a company in
           transition. It was until recently a traditional boxed software company
           selling licenses.

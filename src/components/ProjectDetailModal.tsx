@@ -34,7 +34,7 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
             alt="image"
             className="w-[150px] h-[150px] rounded rounded-xl object-cover border border-white border-2 mx-auto"
           />
-          <h6 className="my-2 block font-sans text-sm font-semibold uppercase leading-relaxed tracking-normal antialiased">
+          <h6 className="my-2 block   text-sm font-semibold uppercase leading-relaxed tracking-normal antialiased">
             AIT PROTOCOL
           </h6>
           <div className="social-links">
@@ -85,11 +85,11 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
           </span>
         </div>
         <div className="max-h-[400px] overflow-y-auto">
-          <p className="body block font-sans text-sm font-normal leading-relaxed  antialiased">
+          <p className="body block   text-sm font-normal leading-relaxed  antialiased">
             Lorem ipsum dolor sit amet.
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo minima, optio pariatur enim odit saepe fugiat officiis laboriosam a illo dolorum laborum commodi laudantium, dolore maxime? Repudiandae, maiores deserunt dolorum, quas repellat nobis, tempora suscipit explicabo ab molestias enim consectetur. Debitis, incidunt reprehenderit corporis delectus nemo mollitia, sint adipisci harum nobis cumque numquam repellendus repudiandae quo at libero illo, illum vitae maxime aperiam laborum fuga impedit officiis. Nesciunt molestiae cum nobis accusantium possimus earum ipsam, rem fuga, numquam inventore quidem praesentium et quaerat. Dicta dolor laudantium totam, doloremque unde eligendi facilis, explicabo praesentium voluptatum quos sunt dolore corporis, eum voluptas vel maxime ab consequuntur consectetur ratione sequi possimus veniam. Ad at temporibus asperiores perferendis autem placeat consequuntur consectetur a! Consectetur itaque similique pariatur et. Ad expedita, qui cum iste vel laboriosam quaerat dignissimos beatae maxime, praesentium minus deserunt quibusdam consectetur similique omnis sint molestias! Commodi quaerat officia nesciunt sequi quia voluptate eveniet modi velit earum atque, facilis laborum perferendis non similique temporibus dolores esse provident suscipit exercitationem quas labore? Laboriosam, non ipsam. Corrupti voluptatum harum esse voluptates magni, minus cum expedita beatae. Aliquid itaque praesentium sed, magni laudantium quia quos nemo totam veniam nulla consequuntur aspernatur, doloremque iusto fugiat quasi!
           </p>
-          <p className="body block font-sans text-sm font-normal leading-relaxed  antialiased">
+          <p className="body block   text-sm font-normal leading-relaxed  antialiased">
             Lorem ipsum dolor sit amet.
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo minima, optio pariatur enim odit saepe fugiat officiis laboriosam a illo dolorum laborum commodi laudantium, dolore maxime? Repudiandae, maiores deserunt dolorum, quas repellat nobis, tempora suscipit explicabo ab molestias enim consectetur. Debitis, incidunt reprehenderit corporis delectus nemo mollitia, sint adipisci harum nobis cumque numquam repellendus repudiandae quo at libero illo, illum vitae maxime aperiam laborum fuga impedit officiis. Nesciunt molestiae cum nobis accusantium possimus earum ipsam, rem fuga, numquam inventore quidem praesentium et quaerat. Dicta dolor laudantium totam, doloremque unde eligendi facilis, explicabo praesentium voluptatum quos sunt dolore corporis, eum voluptas vel maxime ab consequuntur consectetur ratione sequi possimus veniam. Ad at temporibus asperiores perferendis autem placeat consequuntur consectetur a! Consectetur itaque similique pariatur et. Ad expedita, qui cum iste vel laboriosam quaerat dignissimos beatae maxime, praesentium minus deserunt quibusdam consectetur similique omnis sint molestias! Commodi quaerat officia nesciunt sequi quia voluptate eveniet modi velit earum atque, facilis laborum perferendis non similique temporibus dolores esse provident suscipit exercitationem quas labore? Laboriosam, non ipsam. Corrupti voluptatum harum esse voluptates magni, minus cum expedita beatae. Aliquid itaque praesentium sed, magni laudantium quia quos nemo totam veniam nulla consequuntur aspernatur, doloremque iusto fugiat quasi!
           </p>
