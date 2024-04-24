@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import SearchBar from "./components/SearchBar";
 import Footer from "./components/Footer";
+import data from "./components/mockData";
 import "./App.css";
 
 function App() {
@@ -25,10 +26,10 @@ function App() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="sm:col-span-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {new Array(12).fill(1).map((item, index) => {
+                {data.map((item, index) => {
                   return (
                     <div key={`card--${index}`} className="rounded rounded-xl">
-                      <Card onClick={onViewProjectDetail} />
+                      <Card data={item} onClick={onViewProjectDetail} />
                     </div>
                   );
                 })}
