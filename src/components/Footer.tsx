@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="flex flex-col items-center gap-6 mb-8">
           <div className="text-gray-600 dark:text-gray-300 lg:pr-4">
             <ul className="space-y-6 tracking-wide font-medium text-base lg:text-sm lg:flex lg:space-y-0 lg:space-x-4">
-              <li>
+              {/* <li>
                 <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
                   <img
                     src={iconWeb}
@@ -51,7 +51,7 @@ const Footer = () => {
                     className="block w-[48px] h-[48px]"
                   />
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
