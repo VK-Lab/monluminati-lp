@@ -34,18 +34,12 @@ import logoProjectDecent  from "../assets/projects/project--Decent.jpg";
 import logoProjectMetamask from "../assets/projects/project--Metamask.jpg";
 import logoProjectRabby  from "../assets/projects/project--Rabby.jpg";
 import logoProjectSphere from "../assets/projects/project--Sphere.jpg";
-// import logoProjectNotifi from "../assets/projects/project--Notifi.png";
-import logoProjectNotifi from "../assets/image--hero.svg";
-// import logoProjectDreamOS from "../assets/projects/project--DreamOS.png";
-import logoProjectDreamOS from "../assets/image--hero.svg";
-// import logoProjectParsec from "../assets/projects/project--Parsec.png";
-import logoProjectParsec from "../assets/image--hero.svg";
-// import logoProjectMetadrop from "../assets/projects/project--Metadrop.png";
-import logoProjectMetadrop from "../assets/image--hero.svg";
-// import logoProjectAITProtocol from "../assets/projects/project--AIT Protocol.png";
-import logoProjectAITProtocol from "../assets/image--hero.svg";
-// import logoProjectMonadName from "../assets/projects/project--Monad Name.png";
-import logoProjectMonadName from "../assets/image--hero.svg";
+import logoProjectNotifi from "../assets/projects/project--Notifi.jpg";
+import logoProjectDreamOS from "../assets/projects/project--DreamOS.jpg";
+import logoProjectParsec from "../assets/projects/project--Parsec.jpg";
+import logoProjectMetadrop from "../assets/projects/project--Metadrop.png";
+import logoProjectAITProtocol from "../assets/projects/project--AIT Protocol.jpg";
+import logoProjectMonadName from "../assets/projects/project--Monad Name.png";
 
 const projects = [
   {
