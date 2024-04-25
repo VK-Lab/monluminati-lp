@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="text-gray-600 dark:text-gray-300 lg:pr-4">
             <ul className="space-y-6 tracking-wide font-medium text-base lg:text-sm lg:flex lg:space-y-0 lg:space-x-4">
               <li>
-                <a href="#" className="inline-flex">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
                   <img
                     src={iconWeb}
                     alt="Web"
@@ -26,7 +26,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="inline-flex">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
                   <img
                     src={iconX}
                     alt="X"
@@ -35,7 +35,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="inline-flex">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
                   <img
                     src={iconDiscord}
                     alt="Discord"
@@ -44,7 +44,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="inline-flex">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
                   <img
                     src={iconTelegram}
                     alt="Telegram"

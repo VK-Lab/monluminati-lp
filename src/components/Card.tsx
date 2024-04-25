@@ -63,22 +63,22 @@ const Card = ({ data, onClick }: any) => {
         <div className="social-links">
           <div className="flex items-center">
             {social.website && (
-              <a href={social.website} className="inline-flex">
+              <a href={social.website} target="_blank" rel="noopener noreferrer" className="inline-flex">
                 <img src={iconWeb} alt="Web" className="block w-[48px] h-[48px]" />
               </a>
             )}
             {social.x && (
-              <a href={social.x} className="inline-flex">
+              <a href={social.x} target="_blank" rel="noopener noreferrer" className="inline-flex">
                 <img src={iconX} alt="X" className="block w-[48px] h-[48px]" />
               </a>
             )}
             {social.discord && (
-              <a href={social.discord} className="inline-flex">
+              <a href={social.discord} target="_blank" rel="noopener noreferrer" className="inline-flex">
                 <img src={iconDiscord} alt="Discord" className="block w-[48px] h-[48px]" />
               </a>
             )}
             {social.telegram && (
-              <a href={social.telegram} className="inline-flex">
+              <a href={social.telegram} target="_blank" rel="noopener noreferrer" className="inline-flex">
                 <img src={iconTelegram} alt="Telegram" className="block w-[48px] h-[48px]" />
               </a>
             )}
