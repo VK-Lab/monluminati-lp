@@ -29,7 +29,8 @@ function App() {
                 {data.map((item, index) => {
                   return (
                     <div key={`card--${index}`} className="rounded rounded-xl">
-                      <Card data={item} onClick={onViewProjectDetail} />
+                      {/* <Card data={item} onClick={onViewProjectDetail} /> */}
+                      <Card data={item} />
                     </div>
                   );
                 })}
@@ -47,13 +48,13 @@ function App() {
               </div>
               <div className="tab-content">
                 <div className="grid grid-cols-1 gap-0">
-                  {new Array(10).fill(1).map((item, index) => {
+                  {new Array(1).fill(1).map((item, index) => {
                     return (
                       <div
                         key={`block--${index}`}
                         className="rounded rounded-xl"
                       >
-                        <BlockItem title={`Title ${index}`} />
+                        <BlockItem title={`Monad Labs - $225M fundraise`} />
                       </div>
                     );
                   })}

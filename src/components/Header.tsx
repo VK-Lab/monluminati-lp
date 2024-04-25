@@ -28,7 +28,7 @@ const Header = () => {
             <div className="navmenu hidden w-full flex-wrap justify-end items-center mb-16 space-y-8 p-6 border border-gray-100 rounded-3xl shadow-2xl shadow-gray-300/20 bg-[111113]/80 lg:space-y-0 lg:p-0 lg:m-0 lg:flex md:flex-nowrap lg:w-7/12 lg:shadow-none dark:shadow-none dark:border-gray-700 lg:border-0">
               <div className="text-gray-600 dark:text-gray-300 lg:pr-4">
                 <ul className="relative top-[5px] space-y-6 tracking-wide font-medium text-base lg:text-sm lg:flex lg:space-y-0 lg:space-x-4">
-                  <li>
+                  {/* <li>
                     <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
                       <img
                         src={iconWeb}
@@ -36,8 +36,8 @@ const Header = () => {
                         className="block w-[48px] h-[48px]"
                       />
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
                       <img
                         src={iconX}
@@ -63,7 +63,7 @@ const Header = () => {
                         className="block w-[48px] h-[48px]"
                       />
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

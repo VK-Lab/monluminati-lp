@@ -6,7 +6,7 @@ const CardCompact = ({ title, description, tag }: any) => {
       <div className="relative m-0 w-[104px] shrink-0 overflow-hidden rounded-r-none bg-clip-border">
         <div className="rounded">
           <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"
+            src="https://pbs.twimg.com/profile_images/1535292066397409280/r-5azuJ__400x400.jpg"
             alt="image"
             className="w-[104px] h-[104px] rounded object-cover"
           />
@@ -14,12 +14,10 @@ const CardCompact = ({ title, description, tag }: any) => {
       </div>
       <div className="px-3 text-left">
         <h6 className="mt-2 mb-1 block   text-base font-semibold uppercase leading-relaxed tracking-normal antialiased">
-          startups
+          WORMHOLE
         </h6>
         <p className="body   text-sm font-normal leading-relaxed antialiased line-clamp-2">
-          Like so many organizations these days, Autodesk is a company in
-          transition. It was until recently a traditional boxed software company
-          selling licenses.
+        Hundreds of companies and applications use Wormhole’s blockchain connectivity platform to securely and scalably grow their user base, increase market share, and drive more on-chain activity.
         </p>
       </div>
     </div>

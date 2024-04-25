@@ -8,7 +8,7 @@ const BlockItem: React.FC = ({ title }) => {
         <div className="w-[50px] h-[50px]">
           <img
             className="w-full h-full object-cover rounded"
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"
+            src="https://pbs.twimg.com/profile_images/1744741990498279424/Mon40JUX_400x400.jpg"
             alt="Icon"
           />
         </div>
@@ -20,7 +20,7 @@ const BlockItem: React.FC = ({ title }) => {
           {title}
         </h6>
         <div className="body text-sm line-clamp-3">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, nostrum.
+        Unreal week with Monad announcing a $225m raise led by Paradigm. 
         </div>
       </div>
 
