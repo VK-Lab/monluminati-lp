@@ -7,7 +7,7 @@ import iconTelegram from "../assets/social--telegram.svg";
 const Card = ({ data, onClick }: any) => {
   const { tags, logoUrl, social, name } = data;
   return (
-    <div onClick={onClick} className="cursor-pointer transition card-common p-5 relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border shadow-2xl border border-white/25 rounded rounded-lg">
+    <div className="cursor-pointer transition card-common p-5 relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border shadow-2xl border border-white/25 rounded rounded-lg">
       <div className="relative m-0 w-[150px] shrink-0 overflow-hidden rounded-xl rounded-r-none bg-clip-border">
         <div className="rounded mb-1">
           <img
@@ -42,7 +42,7 @@ const Card = ({ data, onClick }: any) => {
           </div>
         </div>
       </div>
-      <div className="px-3 text-left">
+      <div className="px-3 text-left flex-1 w-auto">
         <h6 className="mb-2 block   text-base font-semibold uppercase leading-relaxed tracking-normal antialiased">
           {name}
         </h6>
@@ -94,12 +94,13 @@ const Card = ({ data, onClick }: any) => {
           <button
             className="ml-auto show-more rounded-full flex select-none items-center gap-2 rounded-lg p-3 text-center align-middle   text-xs font-bold uppercase text-indigo-500 transition-all hover:opacity-100 hover:bg-indigo-500/10 active:bg-indigo-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
+            onClick={onClick}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="currentColor"
               aria-hidden="true"
               className="h-4 w-4"

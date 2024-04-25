@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Card from "./components/Card";
 import BlockItem from "./components/BlockItem";
 import ProjectDetailModal from "./components/ProjectDetailModal";
@@ -11,10 +11,12 @@ import "./App.css";
 
 function App() {
   const [isProjectDetailModalOpen, setProjectDetailModal] = useState(false);
-  const onViewProjectDetail = (id: string) => {
-    console.log(">> Id: ", id);
+  const [currentProjectDetail, setProjectDetail] = useState(null);
+
+  const onViewProjectDetail = (id: number) => {
     setProjectDetailModal(true);
-  }
+    setProjectDetail(data[id]);
+  };
 
   return (
     <div className="root--skeleton">
@@ -22,15 +24,22 @@ function App() {
       <HeroSection />
       <div className="section--project-list">
         <div className="container mx-auto text-left">
-          <h2 className="mb-10 text-3xl sm:text-[40px] font-semibold color--primary">Into the Nads world</h2>
+          <h2 className="mb-10 text-3xl sm:text-[40px] font-semibold color--primary">
+            Into the Nads world
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="sm:col-span-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {data.map((item, index) => {
                   return (
                     <div key={`card--${index}`} className="rounded rounded-xl">
-                      {/* <Card data={item} onClick={onViewProjectDetail} /> */}
-                      <Card data={item} />
+                      <Card
+                        data={item}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          // onViewProjectDetail(index);
+                        }}
+                      />
                     </div>
                   );
                 })}
@@ -64,10 +73,16 @@ function App() {
           </div>
         </div>
       </div>
-      <ProjectDetailModal
-        isOpen={isProjectDetailModalOpen}
-        onClose={() => setProjectDetailModal(false)}
-      />
+      {isProjectDetailModalOpen && currentProjectDetail && (
+        <ProjectDetailModal
+          project={currentProjectDetail}
+          isOpen={isProjectDetailModalOpen}
+          onClose={() => {
+            setProjectDetailModal(false);
+            setProjectDetail(null);
+          }}
+        />
+      )}
       <Footer />
     </div>
   );

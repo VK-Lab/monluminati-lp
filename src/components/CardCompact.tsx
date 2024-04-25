@@ -9,6 +9,10 @@ const CardCompact = ({ title, description, tag }: any) => {
             src="https://pbs.twimg.com/profile_images/1535292066397409280/r-5azuJ__400x400.jpg"
             alt="image"
             className="w-[104px] h-[104px] rounded object-cover"
+            style={{
+              borderTopLeftRadius: "8px",
+              borderBottomLeftRadius: "8px"
+            }}
           />
         </div>
       </div>
