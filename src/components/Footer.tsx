@@ -16,8 +16,13 @@ const Footer = () => {
         <div className="flex flex-col items-center gap-6 mb-8">
           <div className="text-gray-600 dark:text-gray-300 lg:pr-4">
             <ul className="space-y-6 tracking-wide font-medium text-base lg:text-sm lg:flex lg:space-y-0 lg:space-x-4">
-              {/* <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
+              <li>
+                <a
+                  href="monadata.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex"
+                >
                   <img
                     src={iconWeb}
                     alt="Web"
@@ -26,7 +31,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
+                <a
+                  href="https://twitter.com/monadata_ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex"
+                >
                   <img
                     src={iconX}
                     alt="X"
@@ -35,7 +45,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
+                <a
+                  href="https://discord.gg/6CyFwphJW2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex"
+                >
                   <img
                     src={iconDiscord}
                     alt="Discord"
@@ -43,8 +58,13 @@ const Footer = () => {
                   />
                 </a>
               </li>
-              <li>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
+              {/* <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex"
+                >
                   <img
                     src={iconTelegram}
                     alt="Telegram"

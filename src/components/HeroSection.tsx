@@ -18,7 +18,8 @@ const HeroSection = () => {
           </div>
         </div>
         <h1 className="!leading-[1.25] sm:mx-auto md:mx-0 sm:w-10/12 md:w-1/2 font-semibold text-blue-900 text-center text-3xl  sm:text-4xl md:text-6xl md:text-left xl:text-7xl dark:text-white">
-          Unveil the enigmatic world of Monad with <br className="lg:block hidden" />{" "}
+          Unveil the enigmatic world of Monad with{" "}
+          <br className="lg:block hidden" />{" "}
           <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-400">
             Monluminati
           </span>
@@ -32,7 +33,12 @@ const HeroSection = () => {
               {/* <a href="#" target="_blank" rel="noopener noreferrer" className="btn--primary min-w-[160px] md:w-[250px] md:h-[64px] text-center border border-white/80 text-base sm:text-lg md:text-xl capitalize">
                 Explore
               </a> */}
-              <a href="#" target="_blank" rel="noopener noreferrer" className="btn--secondary min-w-[160px] md:w-[250px] md:h-[64px] text-center border border-white/80 text-base sm:text-lg md:text-xl capitalize">
+              <a
+                href="https://twitter.com/Monluminati"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn--secondary min-w-[160px] md:w-[250px] md:h-[64px] text-center border border-white/80 text-base sm:text-lg md:text-xl capitalize"
+              >
                 Follow Us
               </a>
             </div>
