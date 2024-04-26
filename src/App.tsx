@@ -23,7 +23,7 @@ function App() {
       <Header />
       <HeroSection />
       <div className="section--project-list">
-        <div className="container mx-auto text-left">
+        <div className="px-2 sm:px-0 container mx-auto text-left">
           <h2 className="mb-10 text-3xl sm:text-[40px] font-semibold color--primary">
             Into the Nads world
           </h2>

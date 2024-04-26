@@ -3,9 +3,21 @@ import imageHero from "../assets/image--hero.svg";
 
 const HeroSection = () => {
   return (
-    <div className="relative pt-[200px] pb-[200px] min-h-screen sm:min-h-[880px]">
+    <div className="relative pt-[60px] pb-[100px] sm:pt-[200px] sm:pb-[200px] min-h-screen sm:min-h-[880px]">
       <div className="relative xl:container m-auto px-6 md:px-12 lg:px-6">
-        <h1 className="!leading-[1.25] sm:mx-auto md:mx-0 sm:w-10/12 md:w-1/2 font-semibold text-blue-900 text-4xl text-center sm:text-5xl md:text-6xl md:text-left xl:text-7xl dark:text-white">
+        <div className="sm:hidden top-0 my-8">
+          <div className="relative w-full max-w-[85%] mx-auto">
+            <img
+              src={imageHero}
+              className="relative w-full max-w-[640px]"
+              alt="wath illustration"
+              loading="lazy"
+              width="320"
+              height="320"
+            />
+          </div>
+        </div>
+        <h1 className="!leading-[1.25] sm:mx-auto md:mx-0 sm:w-10/12 md:w-1/2 font-semibold text-blue-900 text-center text-3xl  sm:text-4xl md:text-6xl md:text-left xl:text-7xl dark:text-white">
           Unveil the enigmatic world of Monad with <br className="lg:block hidden" />{" "}
           <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-400">
             Monluminati
@@ -39,14 +51,9 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-          <div className="top-0 mt-12 md:mt-0 lg:absolute -right-10 lg:w-7/12">
+          <div className="hidden sm:block top-0 mt-12 md:mt-0 lg:absolute -right-10 lg:w-7/12">
             <div className="relative w-full max-w-[640px] ml-auto">
-              {/* <div
-                aria-hidden="true"
-                className="absolute scale-75 md:scale-110 inset-0 m-auto w-full h-full md:w-96 md:h-96 rounded-full rotate-45 bg-gradient-to-r from-sky-500 to-cyan-300 blur-3xl"
-              ></div> */}
               <img
-                // src="https://tailus.io/sources/blocks/tech-startup/preview/images/globalization-cuate.svg"
                 src={imageHero}
                 className="relative w-full max-w-[640px]"
                 alt="wath illustration"

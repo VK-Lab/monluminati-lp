@@ -221,3 +221,9 @@ body {
     outline: none;
   }
 }
+
+.main--navbar {
+  &.hide {
+    transform: translateY(-100%)
+  }
+}
