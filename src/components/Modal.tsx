@@ -11,7 +11,7 @@ const Modal = ({
   children: React.ReactNode;
 }) => {
   return createPortal(
-    <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-25 py-10 flex items-center">
+    <div className="backdrop-blur fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-25 py-10 flex items-center z-[100]">
       <div
         className={cn(
           "modal max-h-full-2 overflow-y-auto-2 w-full",

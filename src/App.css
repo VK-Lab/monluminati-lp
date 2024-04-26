@@ -1,10 +1,17 @@
+@import "./assets/styles/embla-carousel.css";
+
 @tailwind components;
 @tailwind utilities;
 
 body {
-  background: black;
+  font-family: "Work Sans", sans-serif;
+  background-image: url("./assets/bg-1.png");
+  background-color: #17192b;
   color: #f0f0f0;
-  font-family: "Inter";
+  min-width: 320px;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 @media (min-width: 1536px) {
@@ -14,7 +21,7 @@ body {
 }
 
 #root {
-  /* max-width: 1280px; */
+  max-width: 100%;
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -70,6 +77,16 @@ body {
 
 /* EARLY-BIRD REGISTRATION */
 @layer components {
+  .heading {
+    color: var(--regular-background);
+    font-weight: 600;
+    font-size: 40px;
+  }
+
+  .color--primary {
+    color: var(--regular-background);
+  }
+
   .btn--primary {
     align-items: center;
     justify-content: center;
@@ -78,7 +95,6 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: #f6f6f6;
     display: flex;
-    font-family: "Inter";
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
@@ -96,7 +112,6 @@ body {
     justify-content: center;
     color: #f6f6f6;
     display: flex;
-    font-family: "Inter";
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
@@ -122,7 +137,7 @@ body {
 }
 
 .card-common {
-  background-color: #27272a;
+  background-color: var(--common-background);
 
   .title {
     color: #e8e8e8;
@@ -160,7 +175,7 @@ body {
   }
 
   &:hover {
-    background-color: #464649;
+    background-color: var(--common-background-hover);
 
     .show-more {
       opacity: 1;
@@ -169,9 +184,14 @@ body {
 }
 
 .block-item {
+  background-color: var(--common-background);
   display: grid;
   grid-template-columns: 56px 1fr 80px;
   gap: 0px 0px;
+
+  &:hover {
+    background-color: var(--common-background-hover-dark);
+  }
 }
 
 .tab-content {
