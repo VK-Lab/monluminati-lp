@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <div className="relative pt-[60px] pb-[100px] sm:pt-[200px] sm:pb-[200px] min-h-screen sm:min-h-[880px]">
       <div className="relative xl:container m-auto px-6 md:px-12 lg:px-6">
-        <div className="sm:hidden top-0 my-8">
+        <div className="md:hidden top-0 my-8">
           <div className="relative w-full max-w-[85%] mx-auto">
             <img
               src={imageHero}
@@ -51,7 +51,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-          <div className="hidden sm:block top-0 mt-12 md:mt-0 lg:absolute -right-10 lg:w-7/12">
+          <div className="hidden md:block top-0 mt-12 md:mt-0 md:absolute -right-10 lg:w-7/12">
             <div className="relative w-full max-w-[640px] ml-auto">
               <img
                 src={imageHero}

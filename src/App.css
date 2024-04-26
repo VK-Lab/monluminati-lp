@@ -152,25 +152,19 @@ body {
   }
 
   .tag {
-    &--infra,
-    &--bridge {
-      border-color: #836ef9;
-    }
-
-    &--ai {
-      border-color: #5feddf;
-    }
-
-    &--dexs {
-      border-color: #61004f;
-    }
-
-    &--nft {
-      border-color: #a0055d;
-    }
-
     &--defi {
-      border-color: #f7ede8;
+      border-color: #836ef9;
+      color: #836ef9;
+    }
+
+    &--game-nft {
+      border-color: #5feddf;
+      color: #5feddf;
+    }
+
+    &--other {
+      border-color: #972081;
+      color: #972081;
     }
   }
 

@@ -33,6 +33,9 @@ function App() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="sm:col-span-2">
+              <div className="md:hidden">
+                <SearchBar value={searchTerm} onChange={setSearchTerm} />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {projects.map((item, index) => {
                   return (
@@ -50,7 +53,9 @@ function App() {
               </div>
             </div>
             <div className="">
-              <SearchBar value={searchTerm} onChange={setSearchTerm} />
+              <div className="hidden md:block">
+                <SearchBar value={searchTerm} onChange={setSearchTerm} />
+              </div>
               <div className="tabs-wrapper mb-4">
                 <div className="flex items-center">
                   <div className="font-semibold p-2 px-6 border-b border-indigo-500 border-b-4 text-lg">

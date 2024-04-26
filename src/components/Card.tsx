@@ -5,7 +5,7 @@ import iconDiscord from "../assets/social--discord.svg";
 import iconTelegram from "../assets/social--telegram.svg";
 
 const Card = ({ data, onClick }: any) => {
-  const { tags, logoUrl, social, name } = data;
+  const { category, tags, logoUrl, social, name } = data;
   return (
     <div className="cursor-pointer transition card-common p-5 relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border shadow-2xl border border-white/25 rounded rounded-lg">
       <div className="relative m-0 w-[150px] shrink-0 overflow-hidden rounded-xl rounded-r-none bg-clip-border">
@@ -48,13 +48,9 @@ const Card = ({ data, onClick }: any) => {
         </h6>
         <div className="category-wrapper flex items-center mb-3">
           <span className={cn("font-semibold badge-chip border-2 border rounded p-1 px-1.5 leading-none text-xs", {
-            "tag--infra": tags === "infra",
-            "tag--bridge": tags === "bridge",
-            "tag--dexs": tags === "dexs",
-            "tag--nft": tags === "nft",
-            "tag--defi": tags === "defi",
-            "tag--dao": tags === "dao",
-            "tag--ai": tags === "ai",
+            "tag--defi": category === "DeFi",
+            "tag--game-nft": category === "GameNFT",
+            "tag--other": category === "Other",
           })}>
             {tags}
           </span>
