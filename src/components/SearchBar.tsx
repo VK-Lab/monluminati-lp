@@ -1,4 +1,4 @@
-const SearchBar = () => {
+const SearchBar = ({ value, onChange }: any) => {
   return (
     <div className="relative mx-auto text-gray-400 mb-8 shadow-xl">
       <input
@@ -6,6 +6,10 @@ const SearchBar = () => {
         type="search"
         name="search"
         placeholder="Search projects..."
+        value={value}
+        onChange={(e) => {
+          onChange(e.target.value)
+        }}
       />
       <button type="submit" className="absolute left-[4px] top-[10px]">
         <svg
