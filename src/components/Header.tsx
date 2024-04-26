@@ -1,20 +1,27 @@
+import { usePrevious, useWindowScroll } from 'react-use';
+import cn from "classnames"
 import logo from "../assets/logo--primary.svg";
-import iconWeb from "../assets/social--web.svg";
-import iconX from "../assets/social--x.svg";
-import iconDiscord from "../assets/social--discord.svg";
-import iconTelegram from "../assets/social--telegram.svg";
+// import iconWeb from "../assets/social--web.svg";
+// import iconX from "../assets/social--x.svg";
+// import iconDiscord from "../assets/social--discord.svg";
+// import iconTelegram from "../assets/social--telegram.svg";
 
 const Header = () => {
+  const { y } = useWindowScroll();
+  const lastYPosition = usePrevious(y);
+
   return (
     <header>
-      <nav className="fixed z-20 w-full bg-[#111113]/90 backdrop-blur navbar shadow-2xl shadow-gray-600/5 border-b border-gray-100 dark:border-gray-800 peer-checked:navbar-active dark:shadow-none">
+      <nav className={cn("main--navbar fixed transition z-20 w-full bg-[#111113]/90 backdrop-blur navbar shadow-2xl shadow-gray-600/5 border-b border-gray-100 dark:border-gray-800 peer-checked:navbar-active dark:shadow-none", {
+        hide: lastYPosition && y > lastYPosition,
+      })}>
         <div className="xl:container m-auto px-6 md:px-12 lg:px-6">
           <div className="flex flex-wrap items-center justify-between gap-6 md:gap-0 py-1">
             <div className="w-full items-center flex justify-between lg:w-auto">
-              <a className="relative z-10" href="#" aria-label="logo">
-                <img src={logo} className="h-[64px]" />
+              <a className="relative z-10 my-1" href="#" aria-label="logo">
+                <img src={logo} className="h-[54px]" />
               </a>
-              <label className="peer-checked:hamburger block relative z-20 p-6 -mr-6 cursor-pointer lg:hidden">
+              <label className="peer-checked:hamburger hidden -block relative z-20 p-6 -mr-6 cursor-pointer lg:hidden">
                 <div
                   aria-hidden="true"
                   className="m-auto h-0.5 w-5 rounded bg-gray-900 dark:bg-gray-300 transition duration-300"

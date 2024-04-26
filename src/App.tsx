@@ -7,9 +7,11 @@ import HeroSection from "./components/HeroSection";
 import SearchBar from "./components/SearchBar";
 import Footer from "./components/Footer";
 import data from "./components/mockData";
+import useSearchFilters from "./hooks/useSearchFilters";
 import "./App.css";
 
 function App() {
+  const { searchTerm, setSearchTerm, resultSearch } = useSearchFilters(data);
   const [isProjectDetailModalOpen, setProjectDetailModal] = useState(false);
   const [currentProjectDetail, setProjectDetail] = useState(null);
 
@@ -18,19 +20,24 @@ function App() {
     setProjectDetail(data[id]);
   };
 
+  const projects = searchTerm ? resultSearch : data
+
   return (
     <div className="root--skeleton">
       <Header />
       <HeroSection />
       <div className="section--project-list">
-        <div className="container mx-auto text-left">
+        <div className="px-2 sm:px-0 container mx-auto text-left">
           <h2 className="mb-10 text-3xl sm:text-[40px] font-semibold color--primary">
             Into the Nads world
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="sm:col-span-2">
+              <div className="md:hidden">
+                <SearchBar value={searchTerm} onChange={setSearchTerm} />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {data.map((item, index) => {
+                {projects.map((item, index) => {
                   return (
                     <div key={`card--${index}`} className="rounded rounded-xl">
                       <Card
@@ -46,7 +53,9 @@ function App() {
               </div>
             </div>
             <div className="">
-              <SearchBar />
+              <div className="hidden md:block">
+                <SearchBar value={searchTerm} onChange={setSearchTerm} />
+              </div>
               <div className="tabs-wrapper mb-4">
                 <div className="flex items-center">
                   <div className="font-semibold p-2 px-6 border-b border-indigo-500 border-b-4 text-lg">
