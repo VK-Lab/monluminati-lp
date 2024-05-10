@@ -4,8 +4,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import CardCompact from "./CardCompact";
 
-type PropType = {
-  slides: number[];
+type PropType<T = any> = {
+  slides: T[];
   options?: EmblaOptionsType;
 };
 
@@ -21,8 +21,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className="embla__container">
           {slides.map((data, index) => (
             <div className="embla__slide" key={index}>
-              <CardCompact />
-              {/* <div className="embla__slide__number">{index + 1}</div> */}
+              <CardCompact data={data} />
             </div>
           ))}
         </div>

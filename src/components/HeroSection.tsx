@@ -1,5 +1,6 @@
 import EmblaCarousel from "./EmblaCarousel";
 import imageHero from "../assets/image--hero.svg";
+import logoProjectWormhole from "../assets/projects/project--Wormhole.jpg";
 
 const HeroSection = () => {
   return (
@@ -52,7 +53,13 @@ const HeroSection = () => {
                   options={{
                     slidesToScroll: "auto",
                   }}
-                  slides={new Array(1).fill(1)}
+                  slides={[
+                    {
+                      title: "WORMHOLE",
+                      logoURL: logoProjectWormhole,
+                      description: "Hundreds of companies and applications use Wormhole’s blockchain connectivity platform to securely and scalably grow their user base, increase market share, and drive more on-chain activity."
+                    }
+                  ]}
                 />
               </div>
             </div>
