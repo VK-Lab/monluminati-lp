@@ -1,5 +1,3 @@
-// import cn from "classnames";
-
 type CardCompactPropType = {
   data: {
     title: string;
