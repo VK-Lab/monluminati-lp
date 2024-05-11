@@ -1,26 +1,39 @@
-import { useState } from "react";
-import Card from "./components/Card";
-import BlockItem from "./components/BlockItem";
-import ProjectDetailModal from "./components/ProjectDetailModal";
-import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
-import SearchBar from "./components/SearchBar";
-import Footer from "./components/Footer";
-import data from "./components/mockData";
-import useSearchFilters from "./hooks/useSearchFilters";
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import { useQuery, gql } from "@apollo/client";
+
+import Card from "@/components/Card";
+import BlockItem from "@/components/BlockItem";
+import ProjectDetailModal from "@/components/ProjectDetailModal";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import SearchBar from "@/components/SearchBar";
+import Footer from "@/components/Footer";
+import data from "@/components/mockData";
+import useSearchFilters from "@/hooks/useSearchFilters";
 import "./App.css";
 
-function App() {
+const GET_PROJECTS = gql`
+  query Projects {
+    projects {
+      id
+      avatar {
+        id
+        url
+      }
+    }
+  }
+`;
+
+export default function Home() {
   const { searchTerm, setSearchTerm, resultSearch } = useSearchFilters(data);
   const [isProjectDetailModalOpen, setProjectDetailModal] = useState(false);
   const [currentProjectDetail, setProjectDetail] = useState(null);
-
-  const onViewProjectDetail = (id: number) => {
-    setProjectDetailModal(true);
-    setProjectDetail(data[id]);
-  };
-
-  const projects = searchTerm ? resultSearch : data
+  const { loading, error, data: dataKs } = useQuery(GET_PROJECTS);
+  console.log(`🚀 ~ Home ~ dataKs:`, dataKs);
+  const projects = searchTerm ? resultSearch : data;
 
   return (
     <div className="root--skeleton">
@@ -42,7 +55,7 @@ function App() {
                     <div key={`card--${index}`} className="rounded rounded-xl">
                       <Card
                         data={item}
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
                           e.preventDefault();
                           // onViewProjectDetail(index);
                         }}
@@ -66,13 +79,25 @@ function App() {
               </div>
               <div className="tab-content">
                 <div className="grid grid-cols-1 gap-0">
-                  {new Array(1).fill(1).map((item, index) => {
+                  {[
+                    {
+                      title: "Monad Labs - $225M fundraise",
+                      description:
+                        "Unreal week with Monad announcing a $225m raise led by Paradigm. ",
+                      imageUrl:
+                        "https://pbs.twimg.com/profile_images/1744741990498279424/Mon40JUX_400x400.jpg"
+                    }
+                  ].map(({ title, imageUrl, description }, index) => {
                     return (
                       <div
                         key={`block--${index}`}
                         className="rounded rounded-xl"
                       >
-                        <BlockItem title={`Monad Labs - $225M fundraise`} />
+                        <BlockItem
+                          imageUrl={imageUrl}
+                          description={description}
+                          title={title}
+                        />
                       </div>
                     );
                   })}
@@ -96,5 +121,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

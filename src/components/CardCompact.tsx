@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 type CardCompactPropType = {
   data: {
     title: string;
@@ -12,9 +14,9 @@ const CardCompact = ({ data }: CardCompactPropType) => {
     <div className="transition card-common relative flex w-full flex-row bg-clip-border shadow-xl border border-white/25 rounded rounded-lg">
       <div className="relative m-0 w-[104px] shrink-0 overflow-hidden rounded-r-none bg-clip-border">
         <div className="rounded">
-          <img
+          <Image
             src={logoURL}
-            alt="image"
+            alt={title}
             className="w-[104px] h-[104px] rounded object-cover"
             style={{
               borderTopLeftRadius: "8px",
