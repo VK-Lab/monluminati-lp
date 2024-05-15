@@ -7,14 +7,15 @@ import iconDiscord from "@/assets/social--discord.svg";
 import iconTelegram from "@/assets/social--telegram.svg";
 import btnClose from "@/assets/btn--close.svg"
 import { DocumentRenderer } from '@keystone-6/document-renderer';
-
+import imgPlaceholder from "@/assets/image--hero.svg";
+import { CustomRenderer } from "./custom-document-render";
 const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
   console.log(`🚀 ~ ProjectDetailModal ~ project:`, project)
   // const { logoUrl, name, tags, social } = project;
   const {
     categories,
     tags,
-    avatar: { url: avatarUrl },
+    avatar,
     socialDiscord,
     socialTelegram,
     socialX,
@@ -33,11 +34,12 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
 
   return (
     <Modal className="!max-w-[768px]">
-      <div className="cover relative z-[1]">
-        <img
-          src={avatarUrl}
+      <div className="cover relative z-[1] min-h-[240px] relative">
+        <Image
+          src={avatar?.url ?? imgPlaceholder}
           alt="image"
           className="w-full h-[140px] sm:h-[320px] rounded rounded-xl object-cover"
+          fill
         />
         <button onClick={onClose} className="cursor-pointer btn--close absolute top-4 right-4">
           <Image src={btnClose} alt="Close" className="block w-[40px] h-[40px]" />
@@ -50,7 +52,7 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
         </div>
         <div className="w-[180px] project-profile text-center relative mt-[-100px]">
           <img
-            src={avatarUrl}
+            src={avatar?.url ?? imgPlaceholder}
             alt="image"
             // width={150}
             // height={150}
@@ -115,7 +117,7 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
           </span>
         </div>
         <div className="max-h-[400px] overflow-y-auto">
-          <DocumentRenderer document={document} />
+          <CustomRenderer document={document} />
           <p className="body block text-sm font-normal leading-relaxed  antialiased">
             {project?.description}
           </p>

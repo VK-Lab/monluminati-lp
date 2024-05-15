@@ -221,3 +221,8 @@ body {
     transform: translateY(-100%)
   }
 }
+
+
+.cover {
+  background: linear-gradient(180deg, #2a216a 0%, #322594 100%);
+}
