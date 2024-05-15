@@ -12,7 +12,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SearchBar from "@/components/SearchBar";
 import Footer from "@/components/Footer";
-import data from "@/components/mockData";
+// import data from "@/components/mockData";
 import useSearchFilters from "@/hooks/useSearchFilters";
 import "./App.css";
 
@@ -45,12 +45,12 @@ const GET_PROJECTS = gql`
 `;
 
 export default function Home() {
-  const { searchTerm, setSearchTerm, resultSearch } = useSearchFilters(data);
+  const { loading, error, data } = useQuery(GET_PROJECTS);
+  const serverProjects = data?.projects ?? [];
+  const { searchTerm, setSearchTerm, resultSearch } = useSearchFilters(serverProjects);
   const [isProjectDetailModalOpen, setProjectDetailModal] = useState(false);
   const [currentProjectDetail, setProjectDetail] = useState(null);
-  const { loading, error, data: dataKs } = useQuery(GET_PROJECTS);
-  console.log(`🚀 ~ Home ~ dataKs:`, dataKs);
-  const projects = searchTerm ? resultSearch : data;
+  const projects = searchTerm ? resultSearch : serverProjects;
 
   const onViewProjectDetail = (project) => {
     setProjectDetailModal(true);
@@ -73,7 +73,7 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {loading && <div>Loading...</div>}
-                {!loading && dataKs?.projects?.map((item, index) => {
+                {!loading && projects?.map((item, index) => {
                   return (
                     <div key={`card--${index}`} className="rounded rounded-xl">
                       <CardServer
@@ -87,7 +87,7 @@ export default function Home() {
                   );
                 })}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {projects.map((item, index) => {
                   return (
                     <div key={`card--${index}`} className="rounded rounded-xl">
@@ -95,13 +95,12 @@ export default function Home() {
                         data={item}
                         onClick={(e: React.MouseEvent<HTMLElement>) => {
                           e.preventDefault();
-                          // onViewProjectDetail(index);
                         }}
                       />
                     </div>
                   );
                 })}
-              </div>
+              </div> */}
             </div>
             <div className="">
               <div className="hidden md:block">

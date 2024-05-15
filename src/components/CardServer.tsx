@@ -4,12 +4,13 @@ import iconWeb from "@/assets/social--web.svg";
 import iconX from "@/assets/social--x.svg";
 import iconDiscord from "@/assets/social--discord.svg";
 import iconTelegram from "@/assets/social--telegram.svg";
+import imgPlaceholder from "@/assets/image--hero.svg";
 
 const CardServer = ({ data, onClick }: any) => {
   const {
     categories,
     tags,
-    avatar: { url: avatarUrl },
+    avatar,
     socialDiscord,
     socialTelegram,
     socialX,
@@ -22,10 +23,13 @@ const CardServer = ({ data, onClick }: any) => {
     <div className="cursor-pointer transition card-common p-5 relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border shadow-2xl border border-white/25 rounded rounded-lg">
       <div className="relative m-0 w-[150px] shrink-0 overflow-hidden rounded-xl rounded-r-none bg-clip-border">
         <div className="rounded mb-1">
-          <img
-            src={avatarUrl}
+          <Image 
+            // src={imgPlaceholder}
+            src={avatar?.url ?? imgPlaceholder}
             alt="image"
             className="w-[150px] h-[150px] rounded rounded-xl object-cover"
+            width={150}
+            height={150}
           />
         </div>
         <div className="hidden social-links">
