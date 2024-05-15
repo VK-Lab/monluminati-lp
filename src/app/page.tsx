@@ -52,7 +52,7 @@ export default function Home() {
   const [currentProjectDetail, setProjectDetail] = useState(null);
   const projects = searchTerm ? resultSearch : serverProjects;
 
-  const onViewProjectDetail = (project) => {
+  const onViewProjectDetail = (project: any) => {
     setProjectDetailModal(true);
     setProjectDetail(project);
   }
@@ -73,7 +73,7 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {loading && <div>Loading...</div>}
-                {!loading && projects?.map((item, index) => {
+                {!loading && projects?.map((item: any, index: number) => {
                   return (
                     <div key={`card--${index}`} className="rounded rounded-xl">
                       <CardServer
