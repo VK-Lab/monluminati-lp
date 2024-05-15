@@ -1,8 +1,10 @@
-import logo from "../assets/logo--primary.svg";
-import iconWeb from "../assets/social--web.svg";
-import iconX from "../assets/social--x.svg";
-import iconDiscord from "../assets/social--discord.svg";
-import iconTelegram from "../assets/social--telegram.svg";
+import Image from "next/image";
+
+import logo from "@/assets/logo--primary.svg";
+import iconWeb from "@/assets/social--web.svg";
+import iconX from "@/assets/social--x.svg";
+import iconDiscord from "@/assets/social--discord.svg";
+import iconTelegram from "@/assets/social--telegram.svg";
 
 const Footer = () => {
   return (
@@ -10,7 +12,7 @@ const Footer = () => {
       <div className="flex flex-col items-center w-full my-20">
         <span className="mb-8">
           <a className="relative z-10" href="#" aria-label="logo">
-            <img src={logo} className="h-[72px]" />
+            <Image src={logo} alt="Monluminati Logo" className="h-[72px]" />
           </a>
         </span>
         <div className="flex flex-col items-center gap-6 mb-8">
@@ -23,7 +25,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="inline-flex"
                 >
-                  <img
+                  <Image
                     src={iconWeb}
                     alt="Web"
                     className="block w-[48px] h-[48px]"
@@ -37,7 +39,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="inline-flex"
                 >
-                  <img
+                  <Image
                     src={iconX}
                     alt="X"
                     className="block w-[48px] h-[48px]"
@@ -51,7 +53,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="inline-flex"
                 >
-                  <img
+                  <Image
                     src={iconDiscord}
                     alt="Discord"
                     className="block w-[48px] h-[48px]"
@@ -65,7 +67,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="inline-flex"
                 >
-                  <img
+                  <Image
                     src={iconTelegram}
                     alt="Telegram"
                     className="block w-[48px] h-[48px]"

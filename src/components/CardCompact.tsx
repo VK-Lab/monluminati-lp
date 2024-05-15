@@ -1,13 +1,22 @@
-import cn from "classnames";
+import Image from 'next/image'
 
-const CardCompact = ({ title, description, tag }: any) => {
+type CardCompactPropType = {
+  data: {
+    title: string;
+    description: string;
+    logoURL: string;
+  };
+};
+
+const CardCompact = ({ data }: CardCompactPropType) => {
+  const { title, description, logoURL } = data;
   return (
     <div className="transition card-common relative flex w-full flex-row bg-clip-border shadow-xl border border-white/25 rounded rounded-lg">
       <div className="relative m-0 w-[104px] shrink-0 overflow-hidden rounded-r-none bg-clip-border">
         <div className="rounded">
-          <img
-            src="https://pbs.twimg.com/profile_images/1535292066397409280/r-5azuJ__400x400.jpg"
-            alt="image"
+          <Image
+            src={logoURL}
+            alt={title}
             className="w-[104px] h-[104px] rounded object-cover"
             style={{
               borderTopLeftRadius: "8px",
@@ -18,10 +27,10 @@ const CardCompact = ({ title, description, tag }: any) => {
       </div>
       <div className="px-3 text-left">
         <h6 className="mt-2 mb-1 block   text-base font-semibold uppercase leading-relaxed tracking-normal antialiased">
-          WORMHOLE
+          {title}
         </h6>
-        <p className="body   text-sm font-normal leading-relaxed antialiased line-clamp-2">
-        Hundreds of companies and applications use Wormhole’s blockchain connectivity platform to securely and scalably grow their user base, increase market share, and drive more on-chain activity.
+        <p className="body text-sm font-normal leading-relaxed antialiased line-clamp-2">
+          {description}
         </p>
       </div>
     </div>

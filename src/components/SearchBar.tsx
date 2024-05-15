@@ -11,7 +11,7 @@ const SearchBar = ({ value, onChange }: any) => {
           onChange(e.target.value)
         }}
       />
-      <button type="submit" className="absolute left-[4px] top-[10px]">
+      <button type="submit" className="absolute left-[20px] top-[20px]">
         <svg
           className="text-gray-400 h-4 w-4 fill-current"
           xmlns="http://www.w3.org/2000/svg"

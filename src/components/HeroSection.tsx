@@ -1,5 +1,7 @@
+import Image from "next/image";
 import EmblaCarousel from "./EmblaCarousel";
-import imageHero from "../assets/image--hero.svg";
+import imageHero from "@/assets/image--hero.svg";
+import logoProjectWormhole from "@/assets/projects/project--Wormhole.jpg";
 
 const HeroSection = () => {
   return (
@@ -7,7 +9,7 @@ const HeroSection = () => {
       <div className="relative xl:container m-auto px-6 md:px-12 lg:px-6">
         <div className="md:hidden top-0 my-8">
           <div className="relative w-full max-w-[85%] mx-auto">
-            <img
+            <Image
               src={imageHero}
               className="relative w-full max-w-[640px]"
               alt="wath illustration"
@@ -50,16 +52,23 @@ const HeroSection = () => {
               <div className="leading-projects">
                 <EmblaCarousel
                   options={{
-                    slidesToScroll: "auto",
+                    slidesToScroll: "auto"
                   }}
-                  slides={new Array(1).fill(1)}
+                  slides={[
+                    {
+                      title: "WORMHOLE",
+                      logoURL: logoProjectWormhole,
+                      description:
+                        "Hundreds of companies and applications use Wormhole’s blockchain connectivity platform to securely and scalably grow their user base, increase market share, and drive more on-chain activity."
+                    }
+                  ]}
                 />
               </div>
             </div>
           </div>
           <div className="hidden md:block top-0 mt-12 md:mt-0 md:absolute -right-10 lg:w-7/12">
             <div className="relative w-full max-w-[640px] ml-auto">
-              <img
+              <Image
                 src={imageHero}
                 className="relative w-full max-w-[640px]"
                 alt="wath illustration"

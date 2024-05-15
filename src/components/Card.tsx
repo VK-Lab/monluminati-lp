@@ -1,8 +1,9 @@
 import cn from "classnames";
-import iconWeb from "../assets/social--web.svg";
-import iconX from "../assets/social--x.svg";
-import iconDiscord from "../assets/social--discord.svg";
-import iconTelegram from "../assets/social--telegram.svg";
+import Image from 'next/image'
+import iconWeb from "@/assets/social--web.svg";
+import iconX from "@/assets/social--x.svg";
+import iconDiscord from "@/assets/social--discord.svg";
+import iconTelegram from "@/assets/social--telegram.svg";
 
 const Card = ({ data, onClick }: any) => {
   const { category, tags, logoUrl, social, name } = data;
@@ -10,8 +11,7 @@ const Card = ({ data, onClick }: any) => {
     <div className="cursor-pointer transition card-common p-5 relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border shadow-2xl border border-white/25 rounded rounded-lg">
       <div className="relative m-0 w-[150px] shrink-0 overflow-hidden rounded-xl rounded-r-none bg-clip-border">
         <div className="rounded mb-1">
-          <img
-            // src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"
+          <Image
             src={logoUrl}
             alt="image"
             className="w-[150px] h-[150px] rounded rounded-xl object-cover"
@@ -21,22 +21,22 @@ const Card = ({ data, onClick }: any) => {
           <div className="flex items-center">
             {social.website && (
               <a href={social.website} className="inline-flex">
-                <img src={iconWeb} alt="Web" className="block w-[48px] h-[48px]" />
+                <Image src={iconWeb} alt="Web" className="block w-[48px] h-[48px]" />
               </a>
             )}
             {social.x && (
               <a href={social.x} className="inline-flex">
-                <img src={iconX} alt="X" className="block w-[48px] h-[48px]" />
+                <Image src={iconX} alt="X" className="block w-[48px] h-[48px]" />
               </a>
             )}
             {social.discord && (
               <a href={social.discord} className="inline-flex">
-                <img src={iconDiscord} alt="Discord" className="block w-[48px] h-[48px]" />
+                <Image src={iconDiscord} alt="Discord" className="block w-[48px] h-[48px]" />
               </a>
             )}
             {social.telegram && (
               <a href={social.telegram} className="inline-flex">
-                <img src={iconTelegram} alt="Telegram" className="block w-[48px] h-[48px]" />
+                <Image src={iconTelegram} alt="Telegram" className="block w-[48px] h-[48px]" />
               </a>
             )}
           </div>
@@ -60,22 +60,22 @@ const Card = ({ data, onClick }: any) => {
           <div className="flex items-center">
             {social.website && (
               <a href={social.website} target="_blank" rel="noopener noreferrer" className="inline-flex">
-                <img src={iconWeb} alt="Web" className="block w-[48px] h-[48px]" />
+                <Image src={iconWeb} alt="Web" className="block w-[48px] h-[48px]" />
               </a>
             )}
             {social.x && (
               <a href={social.x} target="_blank" rel="noopener noreferrer" className="inline-flex">
-                <img src={iconX} alt="X" className="block w-[48px] h-[48px]" />
+                <Image src={iconX} alt="X" className="block w-[48px] h-[48px]" />
               </a>
             )}
             {social.discord && (
               <a href={social.discord} target="_blank" rel="noopener noreferrer" className="inline-flex">
-                <img src={iconDiscord} alt="Discord" className="block w-[48px] h-[48px]" />
+                <Image src={iconDiscord} alt="Discord" className="block w-[48px] h-[48px]" />
               </a>
             )}
             {social.telegram && (
               <a href={social.telegram} target="_blank" rel="noopener noreferrer" className="inline-flex">
-                <img src={iconTelegram} alt="Telegram" className="block w-[48px] h-[48px]" />
+                <Image src={iconTelegram} alt="Telegram" className="block w-[48px] h-[48px]" />
               </a>
             )}
           </div>
