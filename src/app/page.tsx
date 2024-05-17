@@ -1,6 +1,6 @@
 "use client";
-
-import React, { useState } from "react";
+import cn from "classnames";
+import React, { useCallback, useState } from "react";
 import Image from "next/image";
 import { useQuery, gql } from "@apollo/client";
 
@@ -14,6 +14,10 @@ import SearchBar from "@/components/SearchBar";
 import Footer from "@/components/Footer";
 // import data from "@/components/mockData";
 import useSearchFilters from "@/hooks/useSearchFilters";
+
+import { When } from "react-if";
+import TabTopContributor from "@/components/TabTopContributor";
+
 import "./App.css";
 
 const GET_PROJECTS = gql`
@@ -46,8 +50,11 @@ const GET_PROJECTS = gql`
 
 export default function Home() {
   const { loading, error, data } = useQuery(GET_PROJECTS);
+  const [currentTab, setTab] = useState<string>("community");
+
   const serverProjects = data?.projects ?? [];
-  const { searchTerm, setSearchTerm, resultSearch } = useSearchFilters(serverProjects);
+  const { searchTerm, setSearchTerm, resultSearch } =
+    useSearchFilters(serverProjects);
   const [isProjectDetailModalOpen, setProjectDetailModal] = useState(false);
   const [currentProjectDetail, setProjectDetail] = useState(null);
   const projects = searchTerm ? resultSearch : serverProjects;
@@ -55,7 +62,13 @@ export default function Home() {
   const onViewProjectDetail = (project: any) => {
     setProjectDetailModal(true);
     setProjectDetail(project);
-  }
+  };
+
+  const onTabChange = useCallback((tab: string) => {
+    if (currentTab !== tab) {
+      setTab(tab);
+    }
+  }, []);
 
   return (
     <div className="root--skeleton">
@@ -73,19 +86,23 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {loading && <div>Loading...</div>}
-                {!loading && projects?.map((item: any, index: number) => {
-                  return (
-                    <div key={`card--${index}`} className="rounded rounded-xl">
-                      <CardServer
-                        data={item}
-                        onClick={(e: React.MouseEvent<HTMLElement>) => {
-                          e.preventDefault();
-                          onViewProjectDetail(item);
-                        }}
-                      />
-                    </div>
-                  );
-                })}
+                {!loading &&
+                  projects?.map((item: any, index: number) => {
+                    return (
+                      <div
+                        key={`card--${index}`}
+                        className="rounded rounded-xl"
+                      >
+                        <CardServer
+                          data={item}
+                          onClick={(e: React.MouseEvent<HTMLElement>) => {
+                            e.preventDefault();
+                            onViewProjectDetail(item);
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
               </div>
               {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {projects.map((item, index) => {
@@ -108,38 +125,67 @@ export default function Home() {
               </div>
               <div className="tabs-wrapper mb-4">
                 <div className="flex items-center">
-                  <div className="font-semibold p-2 px-6 border-b border-indigo-500 border-b-4 text-lg">
-                    Communities
-                  </div>
-                  <div className="font-semibold p-2 px-6 text-lg">Top Nads</div>
-                </div>
-              </div>
-              <div className="tab-content">
-                <div className="grid grid-cols-1 gap-0">
                   {[
                     {
-                      title: "Monad Labs - $225M fundraise",
-                      description:
-                        "Unreal week with Monad announcing a $225m raise led by Paradigm. ",
-                      imageUrl:
-                        "https://pbs.twimg.com/profile_images/1744741990498279424/Mon40JUX_400x400.jpg"
+                      label: "Communities",
+                      value: "community"
+                    },
+                    {
+                      label: "Top Nads",
+                      value: "topContributor"
                     }
-                  ].map(({ title, imageUrl, description }, index) => {
+                  ].map(({ label, value }) => {
                     return (
                       <div
-                        key={`block--${index}`}
-                        className="rounded rounded-xl"
+                        key={`tab--${value}`}
+                        className={cn(
+                          "cursor-pointer tab-item font-semibold p-2 px-6 text-lg",
+                          {
+                            "tab-item--active border-b border-indigo-500 border-b-4":
+                              currentTab === value
+                          }
+                        )}
+                        onClick={() => onTabChange(value)}
                       >
-                        <BlockItem
-                          imageUrl={imageUrl}
-                          description={description}
-                          title={title}
-                        />
+                        {label}
                       </div>
                     );
                   })}
                 </div>
               </div>
+              <When condition={currentTab === "community"}>
+                <div className="tab-content">
+                  <div className="grid grid-cols-1 gap-0">
+                    {[
+                      {
+                        title: "Monad Labs - $225M fundraise",
+                        description:
+                          "Unreal week with Monad announcing a $225m raise led by Paradigm. ",
+                        imageUrl:
+                          "https://pbs.twimg.com/profile_images/1744741990498279424/Mon40JUX_400x400.jpg"
+                      }
+                    ].map(({ title, imageUrl, description }, index) => {
+                      return (
+                        <div
+                          key={`block--${index}`}
+                          className="rounded rounded-xl"
+                        >
+                          <BlockItem
+                            imageUrl={imageUrl}
+                            description={description}
+                            title={title}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </When>
+              <When condition={currentTab === "topContributor"}>
+                <div className="tab-content">
+                  <TabTopContributor />
+                </div>
+              </When>
             </div>
           </div>
         </div>

@@ -17,12 +17,15 @@
     "embla-carousel-react": "^8.0.4",
     "graphql": "^16.8.1",
     "next": "14.2.3",
+    "numeral": "^2.0.6",
     "react": "^18",
     "react-dom": "^18",
+    "react-if": "^4.1.5",
     "react-use": "^17.5.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/numeral": "^2.0.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
