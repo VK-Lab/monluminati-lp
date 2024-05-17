@@ -1,10 +1,8 @@
 "use client";
 import cn from "classnames";
-import React, { useCallback, useState } from "react";
-import Image from "next/image";
+import React, { useEffect, useCallback, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 
-import Card from "@/components/Card";
 import CardServer from "@/components/CardServer";
 import BlockItem from "@/components/BlockItem";
 import ProjectDetailModal from "@/components/ProjectDetailModal";
@@ -12,7 +10,6 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SearchBar from "@/components/SearchBar";
 import Footer from "@/components/Footer";
-// import data from "@/components/mockData";
 import useSearchFilters from "@/hooks/useSearchFilters";
 
 import { When } from "react-if";
@@ -50,7 +47,7 @@ const GET_PROJECTS = gql`
 
 export default function Home() {
   const { loading, error, data } = useQuery(GET_PROJECTS);
-  const [currentTab, setTab] = useState<string>("community");
+  const [currentTab, setTab] = useState<string>("topContributor");
 
   const serverProjects = data?.projects ?? [];
   const { searchTerm, setSearchTerm, resultSearch } =
@@ -104,20 +101,6 @@ export default function Home() {
                     );
                   })}
               </div>
-              {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {projects.map((item, index) => {
-                  return (
-                    <div key={`card--${index}`} className="rounded rounded-xl">
-                      <Card
-                        data={item}
-                        onClick={(e: React.MouseEvent<HTMLElement>) => {
-                          e.preventDefault();
-                        }}
-                      />
-                    </div>
-                  );
-                })}
-              </div> */}
             </div>
             <div className="">
               <div className="hidden md:block">

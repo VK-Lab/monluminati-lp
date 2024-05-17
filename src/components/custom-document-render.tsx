@@ -1,9 +1,14 @@
 import React, { type ComponentProps } from "react";
+import cn from "classnames";
 import { DocumentRenderer } from "@keystone-6/document-renderer";
 import styles from "./CustomRenderer.module.css";
 import "./test.css";
 
-type CustomRendererProps = ComponentProps<typeof DocumentRenderer>;
+// type CustomRendererProps = ComponentProps<typeof DocumentRenderer>;
+
+interface CustomRendererProps extends ComponentProps<typeof DocumentRenderer>{
+  inlineOnly?: boolean;
+}
 
 const defaultElementRenderers: CustomRendererProps["renderers"] = {
   block: {
@@ -55,9 +60,11 @@ const defaultElementRenderers: CustomRendererProps["renderers"] = {
 //   },
 // }
 
-export function CustomRenderer({ document }: CustomRendererProps) {
+export function CustomRenderer({ inlineOnly = false, document }: CustomRendererProps) {
   return (
-    <div className="e-rte-content">
+    <div className={cn({
+      "e-rte-content": inlineOnly === false
+    })}>
       <DocumentRenderer
         renderers={defaultElementRenderers}
         // componentBlocks={customComponentRenderers}

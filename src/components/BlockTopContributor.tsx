@@ -26,9 +26,9 @@ const BlockTopContributor: React.FC<BlockTopContributorProps> = ({
         <Image
           alt={username}
           src={avatarUrl}
-          width="140"
-          height="140"
-          className="h-10 w-10 rounded-full min-w-[2rem] border-2 border-solid  border-warning-default"
+          width="40"
+          height="40"
+          className="h-[40px] w-[40px] rounded-full min-w-[40px] border-2 border-solid  border-warning-default"
         />
         <span className="ml-2 text-sm">{username}</span>
       </div>

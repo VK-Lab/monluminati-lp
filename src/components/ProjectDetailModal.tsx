@@ -6,12 +6,9 @@ import iconX from "@/assets/social--x.svg";
 import iconDiscord from "@/assets/social--discord.svg";
 import iconTelegram from "@/assets/social--telegram.svg";
 import btnClose from "@/assets/btn--close.svg"
-import { DocumentRenderer } from '@keystone-6/document-renderer';
 import imgPlaceholder from "@/assets/image--hero.svg";
 import { CustomRenderer } from "./custom-document-render";
 const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
-  console.log(`🚀 ~ ProjectDetailModal ~ project:`, project)
-  // const { logoUrl, name, tags, social } = project;
   const {
     categories,
     tags,
