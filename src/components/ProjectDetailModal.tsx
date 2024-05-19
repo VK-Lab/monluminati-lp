@@ -48,11 +48,14 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
         </div>
         <div className="body p-4 relative z-[2]">
           <div className="w-[180px] project-profile text-center relative mt-[-70px] md:mt-[-100px] mx-auto md:mx-0">
-            <img
-              src={avatar?.url ?? imgPlaceholder}
-              alt="image"
-              className="w-[150px] h-[150px] rounded rounded-xl object-cover border border-white border-2 mx-auto"
-            />
+            <div className="relative pb-[100%]">
+              <Image
+                src={avatar?.url ?? imgPlaceholder}
+                alt="image"
+                className="min-w-[150px] min-h-[150px] w-[150px] h-[150px] rounded rounded-xl object-cover border border-white border-2 mx-auto"
+                fill
+              />
+            </div>
             <h6 className="my-2 block text-sm font-semibold uppercase leading-relaxed tracking-normal antialiased">
               {name}
             </h6>

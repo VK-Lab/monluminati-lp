@@ -10,7 +10,6 @@ const useSearchFilters = (columns: any[]) => {
   const onHideSearchBox = useCallback(() => {
     setSearchTerm('');
     setresultSearch([]);
-    // setSearchFeature(false)
   }, []);
 
   const isEmptySearchResult = useMemo(() => Boolean(searchTerm && resultSearch.length === 0), [searchTerm, resultSearch]);

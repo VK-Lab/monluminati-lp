@@ -3,13 +3,13 @@ import { gql,useQuery } from "@apollo/client";
 const QUERY_TOP_NADS = gql`
   query TopContributors {
     topContributors {
-      id
-      username
-      level
-      detailed_xp
       avatarUrl
-      xp
+      detailed_xp
+      id
+      level
       message_count
+      username
+      xp
     }
   }
 `
