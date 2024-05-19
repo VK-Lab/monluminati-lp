@@ -34,17 +34,17 @@ const BlockTopContributor: React.FC<BlockTopContributorProps> = ({
       </div>
 
       {/* Third Column: Stat Number (60px) */}
-      <div className="stat p-1 flex items-center">
+      <div className="stat p-1 flex items-center justify-center">
         <div className="number font-semibold text-sm">
           {numeral(xp).format("0,0[.]0a")}
         </div>
       </div>
-      <div className="stat p-1 flex items-center">
+      <div className="stat p-1 flex items-center justify-center">
         <div className="number font-semibold text-sm">
           {numeral(message_count).format("0,0[.]0a")}
         </div>
       </div>
-      <div className="stat p-1 flex items-center">
+      <div className="stat p-1 flex items-center justify-center">
         <div className="number font-semibold text-sm">{level}</div>
       </div>
     </div>
