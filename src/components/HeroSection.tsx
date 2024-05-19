@@ -1,9 +1,12 @@
 import Image from "next/image";
-import EmblaCarousel from "./EmblaCarousel";
-import imageHero from "@/assets/image--hero.svg";
-import useFetchLeadingProjects from "@/hooks/useFetchLeadingProjects";
 import { useMemo } from "react";
+import React from "react";
+
+import imageHero from "@/assets/image--hero.svg";
 import imgPlaceholder from "@/assets/image--hero.svg";
+import useFetchLeadingProjects from "@/hooks/useFetchLeadingProjects";
+
+import EmblaCarousel from "./EmblaCarousel";
 
 const HeroSection = () => {
   const { data } = useFetchLeadingProjects();

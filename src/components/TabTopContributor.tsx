@@ -1,3 +1,5 @@
+import React from "react";
+
 import BlockTopContributor from "@/components/BlockTopContributor";
 import useFetchTopNads from "@/hooks/useFetchTopNads";
 

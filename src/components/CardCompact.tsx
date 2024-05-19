@@ -1,5 +1,7 @@
 import Image from 'next/image'
-import { CustomRenderer } from './custom-document-render';
+import React from "react";
+
+// import { CustomRenderer } from './custom-document-render';
 
 type CardCompactPropType = {
   data: {

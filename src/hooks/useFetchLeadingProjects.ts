@@ -1,4 +1,4 @@
-import { useQuery, gql } from "@apollo/client";
+import { gql,useQuery } from "@apollo/client";
 
 const QUERY_LEADING_PROJECTS = gql`
   query Projects($where: ProjectWhereInput!, $take: Int) {

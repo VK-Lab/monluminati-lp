@@ -1,3 +1,5 @@
+import React from "react";
+
 const SearchBar = ({ value, onChange }: any) => {
   return (
     <div className="relative mx-auto text-gray-400 mb-8 shadow-xl">

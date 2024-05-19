@@ -1,10 +1,12 @@
 import cn from "classnames";
 import Image from "next/image";
-import iconWeb from "@/assets/social--web.svg";
-import iconX from "@/assets/social--x.svg";
+import React from "react";
+
+import imgPlaceholder from "@/assets/image--hero.svg";
 import iconDiscord from "@/assets/social--discord.svg";
 import iconTelegram from "@/assets/social--telegram.svg";
-import imgPlaceholder from "@/assets/image--hero.svg";
+import iconWeb from "@/assets/social--web.svg";
+import iconX from "@/assets/social--x.svg";
 
 const CardServer = ({ data, onClick }: any) => {
   const {

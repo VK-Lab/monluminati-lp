@@ -1,14 +1,16 @@
-import React from "react";
 import cn from "classnames";
 import Image from "next/image";
-import Modal from "./Modal";
-import iconWeb from "@/assets/social--web.svg";
-import iconX from "@/assets/social--x.svg";
-import iconDiscord from "@/assets/social--discord.svg";
-import iconTelegram from "@/assets/social--telegram.svg";
+import React from "react";
+
 import btnClose from "@/assets/btn--close.svg"
 import imgPlaceholder from "@/assets/image--hero.svg";
+import iconDiscord from "@/assets/social--discord.svg";
+import iconTelegram from "@/assets/social--telegram.svg";
+import iconWeb from "@/assets/social--web.svg";
+import iconX from "@/assets/social--x.svg";
+
 import { CustomRenderer } from "./custom-document-render";
+import Modal from "./Modal";
 const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
   const {
     categories,

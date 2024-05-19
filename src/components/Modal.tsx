@@ -1,6 +1,7 @@
-import React, { useLayoutEffect, useCallback, useEffect } from "react";
 import cn from "classnames";
+import React, { useCallback, useEffect,useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
+
 const Modal = ({
   className = "",
   maxWidth = "max-w-xl",

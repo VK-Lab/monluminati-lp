@@ -1,21 +1,20 @@
 "use client";
-import cn from "classnames";
-import React, { useEffect, useCallback, useState } from "react";
-import { useQuery, gql } from "@apollo/client";
+import "./App.css";
 
-import CardServer from "@/components/CardServer";
+import { gql,useQuery } from "@apollo/client";
+import cn from "classnames";
+import React, { useCallback, useEffect, useState } from "react";
+import { When } from "react-if";
+
 import BlockItem from "@/components/BlockItem";
-import ProjectDetailModal from "@/components/ProjectDetailModal";
+import CardServer from "@/components/CardServer";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import ProjectDetailModal from "@/components/ProjectDetailModal";
 import SearchBar from "@/components/SearchBar";
-import Footer from "@/components/Footer";
-import useSearchFilters from "@/hooks/useSearchFilters";
-
-import { When } from "react-if";
 import TabTopContributor from "@/components/TabTopContributor";
-
-import "./App.css";
+import useSearchFilters from "@/hooks/useSearchFilters";
 
 const GET_PROJECTS = gql`
   query Projects {
@@ -65,7 +64,7 @@ export default function Home() {
     if (currentTab !== tab) {
       setTab(tab);
     }
-  }, []);
+  }, [currentTab]);
 
   const test = useCallback(async () => {
     const botToken = "7148133356:AAF6BZjbOoadcEKVoxL2Ia05D2znto6RyqY";

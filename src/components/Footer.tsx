@@ -1,10 +1,11 @@
 import Image from "next/image";
+import React from "react";
 
 import logo from "@/assets/logo--primary.svg";
+import iconDiscord from "@/assets/social--discord.svg";
+// import iconTelegram from "@/assets/social--telegram.svg";
 import iconWeb from "@/assets/social--web.svg";
 import iconX from "@/assets/social--x.svg";
-import iconDiscord from "@/assets/social--discord.svg";
-import iconTelegram from "@/assets/social--telegram.svg";
 
 const Footer = () => {
   return (

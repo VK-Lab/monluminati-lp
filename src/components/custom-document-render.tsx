@@ -1,8 +1,10 @@
-import React, { type ComponentProps } from "react";
-import cn from "classnames";
-import { DocumentRenderer } from "@keystone-6/document-renderer";
-import styles from "@/assets/styles/CustomRenderer.module.css";
 import "../assets/styles/custom-rte.css";
+
+import { DocumentRenderer } from "@keystone-6/document-renderer";
+import cn from "classnames";
+import React, { type ComponentProps } from "react";
+
+import styles from "@/assets/styles/CustomRenderer.module.css";
 
 // type CustomRendererProps = ComponentProps<typeof DocumentRenderer>;
 

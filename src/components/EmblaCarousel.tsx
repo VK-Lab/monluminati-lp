@@ -1,8 +1,9 @@
-import React from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
+import React from "react";
+
 import CardCompact from "./CardCompact";
+import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 
 type PropType<T = any> = {
   slides: T[];

@@ -1,6 +1,8 @@
 import Image from "next/image";
-import iconX from "@/assets/icon--x.svg";
+import React from "react";
+
 import iconDiscord from "@/assets/icon--discord.svg";
+import iconX from "@/assets/icon--x.svg";
 // import iconTelegram from "@/assets/icon--telegram.svg";
 
 const SocialLinks = () => {

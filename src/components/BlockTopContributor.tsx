@@ -1,6 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import numeral from "numeral";
+import React from "react";
 
 interface BlockTopContributorProps {
   data: any;
