@@ -1,3 +1,4 @@
+import React from "react";
 import cn from "classnames";
 import Image from "next/image";
 import Modal from "./Modal";
@@ -30,94 +31,93 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
   }
 
   return (
-    <Modal className="!max-w-[768px]">
-      <div className="cover relative z-[1] min-h-[240px] relative">
-        <Image
-          src={avatar?.url ?? imgPlaceholder}
-          alt="image"
-          className="w-full h-[140px] sm:h-[320px] rounded rounded-xl object-cover"
-          fill
-        />
-        <button onClick={onClose} className="cursor-pointer btn--close absolute top-4 right-4">
-          <Image src={btnClose} alt="Close" className="block w-[40px] h-[40px]" />
-        </button>
-      </div>
-      <div className="body p-4 relative z-[2]">
-        <div className="flex items-center gap-x-4 absolute top-[16px] right-[16px]">
-          <button className="btn--primary min-w-[160px] text-center">Active</button>
-          <button className="btn--secondary min-w-[160px] text-center">Join</button>
-        </div>
-        <div className="w-[180px] project-profile text-center relative mt-[-100px]">
-          <img
+    <Modal className="!max-w-[768px] -max-h-[80vh]">
+      <div className="flex flex-col">
+        <div className="cover relative z-[1] min-h-[140px] md:min-h-[240px] relative">
+          <Image
             src={avatar?.url ?? imgPlaceholder}
             alt="image"
-            // width={150}
-            // height={150}
-            className="w-[150px] h-[150px] rounded rounded-xl object-cover border border-white border-2 mx-auto"
+            className="w-full h-[140px] sm:h-[320px] rounded rounded-xl object-cover"
+            fill
           />
-          <h6 className="my-2 block   text-sm font-semibold uppercase leading-relaxed tracking-normal antialiased">
-            {name}
-          </h6>
-          <div className="social-links">
-            <div className="flex items-center">
-              {socialWeb && (
-                <a href={socialWeb} className="inline-flex">
-                  <Image
-                    src={iconWeb}
-                    alt="Web"
-                    className="block w-[48px] h-[48px]"
-                  />
-                </a>
-              )}
-              {socialX && (
-                <a href={socialX} className="inline-flex">
-                  <Image src={iconX} alt="X" className="block w-[48px] h-[48px]" />
-                </a>
-              )}
-              {socialDiscord && (
-                <a href={socialDiscord} className="inline-flex">
-                  <Image
-                    src={iconDiscord}
-                    alt="Discord"
-                    className="block w-[48px] h-[48px]"
-                  />
-                </a>
-              )}
-              {socialTelegram && (
-                <a href={socialTelegram} className="inline-flex">
-                  <Image
-                    src={iconTelegram}
-                    alt="Telegram"
-                    className="block w-[48px] h-[48px]"
-                  />
-                </a>
-              )}
+          <button onClick={onClose} className="cursor-pointer btn--close absolute top-4 right-4">
+            <Image src={btnClose} alt="Close" className="block w-[40px] h-[40px]" />
+          </button>
+        </div>
+        <div className="body p-4 relative z-[2]">
+          <div className="w-[180px] project-profile text-center relative mt-[-70px] md:mt-[-100px] mx-auto md:mx-0">
+            <img
+              src={avatar?.url ?? imgPlaceholder}
+              alt="image"
+              className="w-[150px] h-[150px] rounded rounded-xl object-cover border border-white border-2 mx-auto"
+            />
+            <h6 className="my-2 block text-sm font-semibold uppercase leading-relaxed tracking-normal antialiased">
+              {name}
+            </h6>
+            <div className="social-links">
+              <div className="flex items-center">
+                {socialWeb && (
+                  <a href={socialWeb} className="inline-flex">
+                    <Image
+                      src={iconWeb}
+                      alt="Web"
+                      className="block w-[48px] h-[48px]"
+                    />
+                  </a>
+                )}
+                {socialX && (
+                  <a href={socialX} className="inline-flex">
+                    <Image src={iconX} alt="X" className="block w-[48px] h-[48px]" />
+                  </a>
+                )}
+                {socialDiscord && (
+                  <a href={socialDiscord} className="inline-flex">
+                    <Image
+                      src={iconDiscord}
+                      alt="Discord"
+                      className="block w-[48px] h-[48px]"
+                    />
+                  </a>
+                )}
+                {socialTelegram && (
+                  <a href={socialTelegram} className="inline-flex">
+                    <Image
+                      src={iconTelegram}
+                      alt="Telegram"
+                      className="block w-[48px] h-[48px]"
+                    />
+                  </a>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="category-wrapper flex items-center mb-3">
-          <span
-            className={cn(
-              "font-semibold badge-chip border-2 border rounded p-1 leading-none text-xs",
-              {
-                "tag--infra": tags === "infra",
-                "tag--bridge": tags === "bridge",
-                "tag--dexs": tags === "dexs",
-                "tag--nft": tags === "nft",
-                "tag--defi": tags === "defi",
-                "tag--dao": tags === "dao",
-                "tag--ai": tags === "ai",
-              }
-            )}
-          >
-            {category}
-          </span>
-        </div>
-        <div className="max-h-[400px] overflow-y-auto">
-          <CustomRenderer document={document} />
-          <p className="body block text-sm font-normal leading-relaxed  antialiased">
-            {project?.description}
-          </p>
+          <div className="flex justify-center md:justify-start items-center gap-x-4 md:absolute md:top-[16px] md:right-[16px]">
+            <button className="btn--primary min-w-[120px] md:min-w-[160px] text-center">Active</button>
+            <button className="btn--secondary min-w-[120px] md:min-w-[160px] text-center">Join</button>
+          </div>
+          
+          <div className="category-wrapper flex items-center mb-3">
+            <span
+              className={cn(
+                "font-semibold badge-chip border-2 border rounded p-1 leading-none text-xs",
+                {
+                  "tag--infra": tags === "infra",
+                  "tag--bridge": tags === "bridge",
+                  "tag--dexs": tags === "dexs",
+                  "tag--nft": tags === "nft",
+                  "tag--defi": tags === "defi",
+                  "tag--dao": tags === "dao",
+                  "tag--ai": tags === "ai",
+                }
+              )}
+            >
+              {category}
+            </span>
+          </div>
+          <div className="max-h-full -max-h-[60vh] overflow-y-auto text-base">
+            <CustomRenderer document={document} />
+            {/* <CustomRenderer document={document} /> */}
+          </div>
         </div>
       </div>
     </Modal>

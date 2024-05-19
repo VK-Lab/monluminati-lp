@@ -1,8 +1,8 @@
 import React, { type ComponentProps } from "react";
 import cn from "classnames";
 import { DocumentRenderer } from "@keystone-6/document-renderer";
-import styles from "./CustomRenderer.module.css";
-import "./test.css";
+import styles from "@/assets/styles/CustomRenderer.module.css";
+import "../assets/styles/custom-rte.css";
 
 // type CustomRendererProps = ComponentProps<typeof DocumentRenderer>;
 
@@ -29,7 +29,7 @@ const defaultElementRenderers: CustomRendererProps["renderers"] = {
   },
   inline: {
     bold: ({ children }) => {
-      return <strong style={{ color: "#363945" }}>{children}</strong>;
+      return <strong>{children}</strong>;
     },
     // inline code ` `
     code: ({ children }) => {
