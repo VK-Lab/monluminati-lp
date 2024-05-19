@@ -291,7 +291,7 @@
 }
 
 .e-rte-content a {
-  color: #2e2ef1;
+  text-decoration: underline;
 }
 
 .e-rte-content .e-rte-table th {
