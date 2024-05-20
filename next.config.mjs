@@ -4,7 +4,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'keystone-test.s3.ap-southeast-1.amazonaws.com',
+        hostname: 's3.ap-southeast-1.amazonaws.com',
+        // hostname: 'keystone-test.s3.ap-southeast-1.amazonaws.com',
         // port: '',
         // pathname: '/account123/**',
       },

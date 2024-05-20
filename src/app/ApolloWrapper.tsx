@@ -15,8 +15,8 @@ function makeClient() {
   /**
    * TODO: Read from .env
    */
-  const url = process.env.NEXT_PUBLIC_API_CMS ?? "http://localhost:3555";
-  // const url = "https://admin.monluminati.xyz";
+  // const url = process.env.NEXT_PUBLIC_API_CMS ?? "http://localhost:3555";
+  const url = "https://admin.monluminati.xyz";
 
   const httpLink = new HttpLink({
     // this needs to be an absolute url, as relative urls cannot be used in SSR
