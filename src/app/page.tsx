@@ -66,36 +66,36 @@ export default function Home() {
     }
   }, [currentTab]);
 
-  const test = useCallback(async () => {
-    const botToken = "7148133356:AAF6BZjbOoadcEKVoxL2Ia05D2znto6RyqY";
-    const chatId = "-1001982900634";
-    // Create a new URLSearchParams object
-    const params = new URLSearchParams({
-      offset: 0,
-      limit: 10,
-      chat_id: chatId
-    } as any);
-    const url = `https://api.telegram.org/bot${botToken}/getUpdates?${params}`;
-    // const params = { offset: 0, limit: 10 }; // Adjust offset and limit as needed
-    // if (groupId) {
-    //   params.chat_id = groupId;
-    // }
-    try {
-      const response = await fetch(url);
-      console.log(`🚀 ~ test ~ response:`, response);
-      return response.json();
-    } catch (error) {
-      console.error("Error fetching messages:", error);
-      return [];
-    }
-  }, []);
+  // const test = useCallback(async () => {
+  //   const botToken = "7148133356:AAF6BZjbOoadcEKVoxL2Ia05D2znto6RyqY";
+  //   const chatId = "-1001982900634";
+  //   // Create a new URLSearchParams object
+  //   const params = new URLSearchParams({
+  //     offset: 0,
+  //     limit: 10,
+  //     chat_id: chatId
+  //   } as any);
+  //   const url = `https://api.telegram.org/bot${botToken}/getUpdates?${params}`;
+  //   // const params = { offset: 0, limit: 10 }; // Adjust offset and limit as needed
+  //   // if (groupId) {
+  //   //   params.chat_id = groupId;
+  //   // }
+  //   try {
+  //     const response = await fetch(url);
+  //     console.log(`🚀 ~ test ~ response:`, response);
+  //     return response.json();
+  //   } catch (error) {
+  //     console.error("Error fetching messages:", error);
+  //     return [];
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    const result = test();
-    result?.then((data) => {
-      console.log(`🚀 ~ useEffect ~ data:`, data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   const result = test();
+  //   result?.then((data) => {
+  //     console.log(`🚀 ~ useEffect ~ data:`, data);
+  //   });
+  // }, []);
 
   return (
     <div className="root--skeleton">
