@@ -1,7 +1,7 @@
 "use client";
 import "./App.css";
 
-import { gql,useQuery } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import cn from "classnames";
 import React, { useCallback, useEffect, useState } from "react";
 import { When } from "react-if";
@@ -60,11 +60,14 @@ export default function Home() {
     setProjectDetail(project);
   };
 
-  const onTabChange = useCallback((tab: string) => {
-    if (currentTab !== tab) {
-      setTab(tab);
-    }
-  }, [currentTab]);
+  const onTabChange = useCallback(
+    (tab: string) => {
+      if (currentTab !== tab) {
+        setTab(tab);
+      }
+    },
+    [currentTab]
+  );
 
   // const test = useCallback(async () => {
   //   const botToken = "7148133356:AAF6BZjbOoadcEKVoxL2Ia05D2znto6RyqY";
