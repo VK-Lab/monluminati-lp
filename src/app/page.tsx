@@ -105,13 +105,13 @@ export default function Home() {
       <Header />
       <HeroSection />
       <div className="section--project-list">
-        <div className="px-2 container max-w-[1440px] mx-auto text-left">
+        <div className="px-2 lg:px-6 xl:container mx-auto text-left">
           <h2 className="mb-10 text-3xl sm:text-[40px] font-semibold color--primary">
             Into the Nads world
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="sm:col-span-2">
-              <div className="md:hidden">
+              <div className="hidden -md:hidden">
                 <SearchBar value={searchTerm} onChange={setSearchTerm} />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -136,16 +136,16 @@ export default function Home() {
               </div>
             </div>
             <div className="">
-              <div className="hidden md:block">
+              <div className="hidden -md:block">
                 <SearchBar value={searchTerm} onChange={setSearchTerm} />
               </div>
               <div className="tabs-wrapper mb-4">
                 <div className="flex items-center">
                   {[
-                    {
-                      label: "Communities",
-                      value: "community"
-                    },
+                    // {
+                    //   label: "Communities",
+                    //   value: "community"
+                    // },
                     {
                       label: "Top Nads",
                       value: "topContributor"
