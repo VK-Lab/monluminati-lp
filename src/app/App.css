@@ -100,12 +100,18 @@ body {
     font-style: normal;
     font-weight: 600;
     line-height: 18px;
-    min-height: 48px;
+    min-height: 40px;
     text-align: center;
     text-transform: uppercase;
     text-align: center;
     outline: none;
-    padding: 0 32px;
+    padding: 0 16px;
+
+    &[disabled] {
+      background: #6d6d6d;
+      color: #bbb;
+      cursor: not-allowed;
+    }
   }
 
   .btn--secondary {
@@ -113,16 +119,15 @@ body {
     justify-content: center;
     color: #f6f6f6;
     display: flex;
-    font-size: 15px;
     font-style: normal;
     font-weight: 600;
     line-height: 18px;
-    min-height: 48px;
+    min-height: 40px;
     text-align: center;
     text-transform: uppercase;
     text-align: center;
     outline: none;
-    padding: 0 32px;
+    padding: 0 16px;
 
     background: linear-gradient(
       180deg,

@@ -53,7 +53,7 @@ const BlockTopContributor: React.FC<BlockTopContributorProps> = ({
 
 export const BlockTopContributorHeader = () => {
   return (
-    <div className="-block-item grid grid-cols-[36px_1fr_50px_50px_50px] gap-2 py-3 sticky top-0 right-0 bg-gray-800">
+    <div className="-block-item grid grid-cols-[36px_1fr_50px_50px_50px] gap-2 py-3 sticky top-0 right-0 -bg-gray-800 bg-[#111215]">
       <div className="p-1 flex items-center justify-center">
         <div className="w-[36px]">
         </div>
