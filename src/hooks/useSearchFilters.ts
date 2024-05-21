@@ -1,4 +1,4 @@
-import { useRef, useState, useMemo, useCallback } from "react";
+import { useCallback,useMemo, useRef, useState } from "react";
 import { useDebounce } from 'react-use'
 
 const useSearchFilters = (columns: any[]) => {
@@ -10,7 +10,6 @@ const useSearchFilters = (columns: any[]) => {
   const onHideSearchBox = useCallback(() => {
     setSearchTerm('');
     setresultSearch([]);
-    // setSearchFeature(false)
   }, []);
 
   const isEmptySearchResult = useMemo(() => Boolean(searchTerm && resultSearch.length === 0), [searchTerm, resultSearch]);

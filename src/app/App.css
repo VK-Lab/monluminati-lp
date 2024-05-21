@@ -7,6 +7,7 @@ body {
   font-family: "Work Sans", sans-serif;
   background-image: url("../assets/bg-1.png");
   background-color: #17192b;
+  background-attachment: fixed;
   color: #f0f0f0;
   min-width: 320px;
   min-height: 100vh;
@@ -220,4 +221,9 @@ body {
   &.hide {
     transform: translateY(-100%)
   }
+}
+
+
+.cover {
+  background: linear-gradient(180deg, #2a216a 0%, #322594 100%);
 }

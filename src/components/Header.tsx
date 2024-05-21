@@ -1,9 +1,11 @@
-import Image from 'next/image'
-import { usePrevious, useWindowScroll } from "react-use";
 import cn from "classnames";
+import Image from 'next/image'
+import React from "react";
+import { usePrevious, useWindowScroll } from "react-use";
+
 import logo from "@/assets/logo--primary.svg";
-import iconX from "@/assets/social--x.svg";
 import iconDiscord from "@/assets/social--discord.svg";
+import iconX from "@/assets/social--x.svg";
 // import iconWeb from "@/assets/social--web.svg";
 // import iconTelegram from "../assets/social--telegram.svg";
 

@@ -1,20 +1,20 @@
 "use client";
+import "./App.css";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { useQuery, gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
+import cn from "classnames";
+import React, { useCallback, useEffect, useState } from "react";
+import { When } from "react-if";
 
-import Card from "@/components/Card";
-import CardServer from "@/components/CardServer";
 import BlockItem from "@/components/BlockItem";
-import ProjectDetailModal from "@/components/ProjectDetailModal";
+import CardServer from "@/components/CardServer";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import ProjectDetailModal from "@/components/ProjectDetailModal";
 import SearchBar from "@/components/SearchBar";
-import Footer from "@/components/Footer";
-// import data from "@/components/mockData";
+import TabTopContributor from "@/components/TabTopContributor";
 import useSearchFilters from "@/hooks/useSearchFilters";
-import "./App.css";
 
 const GET_PROJECTS = gql`
   query Projects {
@@ -46,8 +46,11 @@ const GET_PROJECTS = gql`
 
 export default function Home() {
   const { loading, error, data } = useQuery(GET_PROJECTS);
+  const [currentTab, setTab] = useState<string>("topContributor");
+
   const serverProjects = data?.projects ?? [];
-  const { searchTerm, setSearchTerm, resultSearch } = useSearchFilters(serverProjects);
+  const { searchTerm, setSearchTerm, resultSearch } =
+    useSearchFilters(serverProjects);
   const [isProjectDetailModalOpen, setProjectDetailModal] = useState(false);
   const [currentProjectDetail, setProjectDetail] = useState(null);
   const projects = searchTerm ? resultSearch : serverProjects;
@@ -55,14 +58,54 @@ export default function Home() {
   const onViewProjectDetail = (project: any) => {
     setProjectDetailModal(true);
     setProjectDetail(project);
-  }
+  };
+
+  const onTabChange = useCallback(
+    (tab: string) => {
+      if (currentTab !== tab) {
+        setTab(tab);
+      }
+    },
+    [currentTab]
+  );
+
+  // const test = useCallback(async () => {
+  //   const botToken = "7148133356:AAF6BZjbOoadcEKVoxL2Ia05D2znto6RyqY";
+  //   const chatId = "-1001982900634";
+  //   // Create a new URLSearchParams object
+  //   const params = new URLSearchParams({
+  //     offset: 0,
+  //     limit: 10,
+  //     chat_id: chatId
+  //   } as any);
+  //   const url = `https://api.telegram.org/bot${botToken}/getUpdates?${params}`;
+  //   // const params = { offset: 0, limit: 10 }; // Adjust offset and limit as needed
+  //   // if (groupId) {
+  //   //   params.chat_id = groupId;
+  //   // }
+  //   try {
+  //     const response = await fetch(url);
+  //     console.log(`🚀 ~ test ~ response:`, response);
+  //     return response.json();
+  //   } catch (error) {
+  //     console.error("Error fetching messages:", error);
+  //     return [];
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   const result = test();
+  //   result?.then((data) => {
+  //     console.log(`🚀 ~ useEffect ~ data:`, data);
+  //   });
+  // }, []);
 
   return (
     <div className="root--skeleton">
       <Header />
       <HeroSection />
       <div className="section--project-list">
-        <div className="px-2 sm:px-0 container mx-auto text-left">
+        <div className="px-2 container max-w-[1440px] mx-auto text-left">
           <h2 className="mb-10 text-3xl sm:text-[40px] font-semibold color--primary">
             Into the Nads world
           </h2>
@@ -73,34 +116,24 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {loading && <div>Loading...</div>}
-                {!loading && projects?.map((item: any, index: number) => {
-                  return (
-                    <div key={`card--${index}`} className="rounded rounded-xl">
-                      <CardServer
-                        data={item}
-                        onClick={(e: React.MouseEvent<HTMLElement>) => {
-                          e.preventDefault();
-                          onViewProjectDetail(item);
-                        }}
-                      />
-                    </div>
-                  );
-                })}
+                {!loading &&
+                  projects?.map((item: any, index: number) => {
+                    return (
+                      <div
+                        key={`card--${index}`}
+                        className="rounded rounded-xl"
+                      >
+                        <CardServer
+                          data={item}
+                          onClick={(e: React.MouseEvent<HTMLElement>) => {
+                            e.preventDefault();
+                            onViewProjectDetail(item);
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
               </div>
-              {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {projects.map((item, index) => {
-                  return (
-                    <div key={`card--${index}`} className="rounded rounded-xl">
-                      <Card
-                        data={item}
-                        onClick={(e: React.MouseEvent<HTMLElement>) => {
-                          e.preventDefault();
-                        }}
-                      />
-                    </div>
-                  );
-                })}
-              </div> */}
             </div>
             <div className="">
               <div className="hidden md:block">
@@ -108,38 +141,67 @@ export default function Home() {
               </div>
               <div className="tabs-wrapper mb-4">
                 <div className="flex items-center">
-                  <div className="font-semibold p-2 px-6 border-b border-indigo-500 border-b-4 text-lg">
-                    Communities
-                  </div>
-                  <div className="font-semibold p-2 px-6 text-lg">Top Nads</div>
-                </div>
-              </div>
-              <div className="tab-content">
-                <div className="grid grid-cols-1 gap-0">
                   {[
                     {
-                      title: "Monad Labs - $225M fundraise",
-                      description:
-                        "Unreal week with Monad announcing a $225m raise led by Paradigm. ",
-                      imageUrl:
-                        "https://pbs.twimg.com/profile_images/1744741990498279424/Mon40JUX_400x400.jpg"
+                      label: "Communities",
+                      value: "community"
+                    },
+                    {
+                      label: "Top Nads",
+                      value: "topContributor"
                     }
-                  ].map(({ title, imageUrl, description }, index) => {
+                  ].map(({ label, value }) => {
                     return (
                       <div
-                        key={`block--${index}`}
-                        className="rounded rounded-xl"
+                        key={`tab--${value}`}
+                        className={cn(
+                          "cursor-pointer tab-item font-semibold p-2 px-6 text-lg",
+                          {
+                            "tab-item--active border-b border-indigo-500 border-b-4":
+                              currentTab === value
+                          }
+                        )}
+                        onClick={() => onTabChange(value)}
                       >
-                        <BlockItem
-                          imageUrl={imageUrl}
-                          description={description}
-                          title={title}
-                        />
+                        {label}
                       </div>
                     );
                   })}
                 </div>
               </div>
+              <When condition={currentTab === "community"}>
+                <div className="tab-content">
+                  <div className="grid grid-cols-1 gap-0">
+                    {[
+                      {
+                        title: "Monad Labs - $225M fundraise",
+                        description:
+                          "Unreal week with Monad announcing a $225m raise led by Paradigm. ",
+                        imageUrl:
+                          "https://pbs.twimg.com/profile_images/1744741990498279424/Mon40JUX_400x400.jpg"
+                      }
+                    ].map(({ title, imageUrl, description }, index) => {
+                      return (
+                        <div
+                          key={`block--${index}`}
+                          className="rounded rounded-xl"
+                        >
+                          <BlockItem
+                            imageUrl={imageUrl}
+                            description={description}
+                            title={title}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </When>
+              <When condition={currentTab === "topContributor"}>
+                <div className="tab-content">
+                  <TabTopContributor />
+                </div>
+              </When>
             </div>
           </div>
         </div>

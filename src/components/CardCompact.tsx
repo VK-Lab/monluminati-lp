@@ -1,9 +1,12 @@
 import Image from 'next/image'
+import React from "react";
+
+// import { CustomRenderer } from './custom-document-render';
 
 type CardCompactPropType = {
   data: {
     title: string;
-    description: string;
+    description: any;
     logoURL: string;
   };
 };
@@ -30,7 +33,7 @@ const CardCompact = ({ data }: CardCompactPropType) => {
           {title}
         </h6>
         <p className="body text-sm font-normal leading-relaxed antialiased line-clamp-2">
-          {description}
+          {description}  
         </p>
       </div>
     </div>

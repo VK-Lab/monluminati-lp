@@ -1,9 +1,26 @@
 import Image from "next/image";
-import EmblaCarousel from "./EmblaCarousel";
+import { useMemo } from "react";
+import React from "react";
+
 import imageHero from "@/assets/image--hero.svg";
-import logoProjectWormhole from "@/assets/projects/project--Wormhole.jpg";
+import imgPlaceholder from "@/assets/image--hero.svg";
+import useFetchLeadingProjects from "@/hooks/useFetchLeadingProjects";
+
+import EmblaCarousel from "./EmblaCarousel";
 
 const HeroSection = () => {
+  const { data } = useFetchLeadingProjects();
+  const leadingProjedts = useMemo(() => {
+    return data.map((project: any) => {
+      return {
+        title: project.name,
+        logoURL: project.avatar?.url ?? imgPlaceholder,
+        description: project.shortDescription,
+        id: project.id
+      }
+    })
+  }, [data]);
+  
   return (
     <div className="relative pt-[60px] pb-[100px] sm:pt-[200px] sm:pb-[200px] min-h-screen sm:min-h-[880px]">
       <div className="relative xl:container m-auto px-6 md:px-12 lg:px-6">
@@ -32,9 +49,6 @@ const HeroSection = () => {
               Discover everything in the Monad Ecosystem
             </p>
             <div className="mb-10 flex items-center gap-x-4 justify-center md:justify-start">
-              {/* <a href="#" target="_blank" rel="noopener noreferrer" className="btn--primary min-w-[160px] md:w-[250px] md:h-[64px] text-center border border-white/80 text-base sm:text-lg md:text-xl capitalize">
-                Explore
-              </a> */}
               <a
                 href="https://twitter.com/Monluminati"
                 target="_blank"
@@ -54,14 +68,7 @@ const HeroSection = () => {
                   options={{
                     slidesToScroll: "auto"
                   }}
-                  slides={[
-                    {
-                      title: "WORMHOLE",
-                      logoURL: logoProjectWormhole,
-                      description:
-                        "Hundreds of companies and applications use Wormhole’s blockchain connectivity platform to securely and scalably grow their user base, increase market share, and drive more on-chain activity."
-                    }
-                  ]}
+                  slides={leadingProjedts}
                 />
               </div>
             </div>
