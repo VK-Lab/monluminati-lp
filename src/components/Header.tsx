@@ -66,20 +66,6 @@ const Header = () => {
                       />
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="https://discord.gg/6CyFwphJW2"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex"
-                    >
-                      <Image
-                        src={iconDiscord}
-                        alt="Discord"
-                        className="block w-[48px] h-[48px]"
-                      />
-                    </a>
-                  </li>
                   {/* <li>
                     <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex">
                       <Image
