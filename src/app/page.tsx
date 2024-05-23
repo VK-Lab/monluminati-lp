@@ -3,16 +3,16 @@ import "./App.css";
 
 import { gql, useQuery } from "@apollo/client";
 import cn from "classnames";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { When } from "react-if";
 
-import BlockItem from "@/components/BlockItem";
 import CardServer from "@/components/CardServer";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProjectDetailModal from "@/components/ProjectDetailModal";
 import SearchBar from "@/components/SearchBar";
+import TabCommunity from "@/components/TabCommunity";
 import TabTopContributor from "@/components/TabTopContributor";
 import useSearchFilters from "@/hooks/useSearchFilters";
 
@@ -45,7 +45,7 @@ const GET_PROJECTS = gql`
 `;
 
 export default function Home() {
-  const { loading, error, data } = useQuery(GET_PROJECTS);
+  const { loading, data } = useQuery(GET_PROJECTS);
   const [currentTab, setTab] = useState<string>("topContributor");
 
   const serverProjects = data?.projects ?? [];
@@ -142,10 +142,10 @@ export default function Home() {
               <div className="tabs-wrapper mb-4">
                 <div className="flex items-center">
                   {[
-                    // {
-                    //   label: "Communities",
-                    //   value: "community"
-                    // },
+                    {
+                      label: "Communities",
+                      value: "community"
+                    },
                     {
                       label: "Top Nads",
                       value: "topContributor"
@@ -171,30 +171,7 @@ export default function Home() {
               </div>
               <When condition={currentTab === "community"}>
                 <div className="tab-content">
-                  <div className="grid grid-cols-1 gap-0">
-                    {[
-                      {
-                        title: "Monad Labs - $225M fundraise",
-                        description:
-                          "Unreal week with Monad announcing a $225m raise led by Paradigm. ",
-                        imageUrl:
-                          "https://pbs.twimg.com/profile_images/1744741990498279424/Mon40JUX_400x400.jpg"
-                      }
-                    ].map(({ title, imageUrl, description }, index) => {
-                      return (
-                        <div
-                          key={`block--${index}`}
-                          className="rounded rounded-xl"
-                        >
-                          <BlockItem
-                            imageUrl={imageUrl}
-                            description={description}
-                            title={title}
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <TabCommunity />
                 </div>
               </When>
               <When condition={currentTab === "topContributor"}>
