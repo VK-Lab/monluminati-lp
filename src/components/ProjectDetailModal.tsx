@@ -24,7 +24,6 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
     name,
     content: { document }
   } = project;
-  console.log(`🚀 ~ ProjectDetailModal ~ document:`, document);
   const { name: category } = categories?.[0] ?? "";
 
   if (!isOpen) {
