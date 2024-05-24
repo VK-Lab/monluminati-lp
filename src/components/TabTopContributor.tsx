@@ -4,11 +4,13 @@ import Scrollbars from "react-custom-scrollbars";
 import BlockTopContributor, {BlockTopContributorHeader} from "@/components/BlockTopContributor";
 import useFetchTopNads from "@/hooks/useFetchTopNads";
 
+import Loader from "./Loader";
+
 const TabTopContributor = () => {
   const { data: dataTopNads, loading } = useFetchTopNads();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (

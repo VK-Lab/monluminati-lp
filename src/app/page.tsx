@@ -15,6 +15,7 @@ import SearchBar from "@/components/SearchBar";
 import TabCommunity from "@/components/TabCommunity";
 import TabTopContributor from "@/components/TabTopContributor";
 import useSearchFilters from "@/hooks/useSearchFilters";
+import Loader from "@/components/Loader";
 
 const GET_PROJECTS = gql`
   query Projects {
@@ -46,7 +47,7 @@ const GET_PROJECTS = gql`
 
 export default function Home() {
   const { loading, data } = useQuery(GET_PROJECTS);
-  const [currentTab, setTab] = useState<string>("topContributor");
+  const [currentTab, setTab] = useState<string>("community");
 
   const serverProjects = data?.projects ?? [];
   const { searchTerm, setSearchTerm, resultSearch } =
@@ -114,8 +115,8 @@ export default function Home() {
               <div className="hidden -md:hidden">
                 <SearchBar value={searchTerm} onChange={setSearchTerm} />
               </div>
+              {loading && <Loader />}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {loading && <div>Loading...</div>}
                 {!loading &&
                   projects?.map((item: any, index: number) => {
                     return (

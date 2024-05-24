@@ -4,12 +4,13 @@ import Scrollbars from "react-custom-scrollbars";
 import useFetchCommunitiesNews from "@/hooks/useFetchCommunitiesNews";
 
 import BlockItem from "./BlockItem";
+import Loader from "./Loader";
 
 const TabCommunity = () => {
   const { data: latestNews, loading } = useFetchCommunitiesNews();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
