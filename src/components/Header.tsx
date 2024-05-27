@@ -6,12 +6,14 @@ import { usePrevious, useWindowScroll } from "react-use";
 import logo from "@/assets/logo--primary.svg";
 import iconDiscord from "@/assets/social--discord.svg";
 import iconX from "@/assets/social--x.svg";
+import { DISCORD_APP_ID, DISCORD_REDIRECT_URI } from "@/utils/constants";
 // import iconWeb from "@/assets/social--web.svg";
 // import iconTelegram from "../assets/social--telegram.svg";
 
 const Header = () => {
   const { y } = useWindowScroll();
   const lastYPosition = usePrevious(y);
+  const urlSSODiscord = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_APP_ID}&redirect_uri=${DISCORD_REDIRECT_URI}&response_type=code&scope=identify%20email%20guilds.join`;
 
   return (
     <header>
@@ -52,6 +54,18 @@ const Header = () => {
                       />
                     </a>
                   </li> */}
+                  <li>
+                    <a href={urlSSODiscord} className="inline-flex items-center">
+                      <Image
+                        src={iconDiscord}
+                        alt="Discord"
+                        className="block w-[42px]"
+                        height={42}
+                        width={42}
+                      />
+                      <span>Login with Discord</span>
+                    </a>
+                  </li>
                   <li>
                     <a
                       href="https://twitter.com/Monluminati"

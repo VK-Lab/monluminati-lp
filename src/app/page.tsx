@@ -10,12 +10,12 @@ import CardServer from "@/components/CardServer";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import Loader from "@/components/Loader";
 import ProjectDetailModal from "@/components/ProjectDetailModal";
 import SearchBar from "@/components/SearchBar";
 import TabCommunity from "@/components/TabCommunity";
 import TabTopContributor from "@/components/TabTopContributor";
 import useSearchFilters from "@/hooks/useSearchFilters";
-import Loader from "@/components/Loader";
 
 const GET_PROJECTS = gql`
   query Projects {
@@ -48,6 +48,8 @@ const GET_PROJECTS = gql`
 export default function Home() {
   const { loading, data } = useQuery(GET_PROJECTS);
   const [currentTab, setTab] = useState<string>("community");
+
+  
 
   const serverProjects = data?.projects ?? [];
   const { searchTerm, setSearchTerm, resultSearch } =
