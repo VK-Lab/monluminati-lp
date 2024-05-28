@@ -7,6 +7,8 @@ import logo from "@/assets/logo--primary.svg";
 import iconDiscord from "@/assets/social--discord.svg";
 import iconX from "@/assets/social--x.svg";
 import { DISCORD_APP_ID, DISCORD_REDIRECT_URI } from "@/utils/constants";
+
+import SignIn from "./SignIn";
 // import iconWeb from "@/assets/social--web.svg";
 // import iconTelegram from "../assets/social--telegram.svg";
 
@@ -54,6 +56,9 @@ const Header = () => {
                       />
                     </a>
                   </li> */}
+                  <li>
+                    <SignIn />
+                  </li>
                   <li>
                     <a href={urlSSODiscord} className="inline-flex items-center">
                       <Image

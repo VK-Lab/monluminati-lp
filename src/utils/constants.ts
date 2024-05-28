@@ -1,2 +1,3 @@
-export const DISCORD_APP_ID = process.env.NEXT_PUBLIC_DISCORD_APP_ID ?? undefined;
-export const DISCORD_REDIRECT_URI = process.env.NEXT_PUBLIC_DISCORD_REDIRECT_URL ?? undefined;
+export const DISCORD_APP_ID = process.env.NEXT_PUBLIC_DISCORD_APP_ID ?? "";
+export const DISCORD_REDIRECT_URI = process.env.NEXT_PUBLIC_DISCORD_REDIRECT_URL ?? "";
+export const DISCORD_SECRET_KEY = process.env.NEXT_PUBLIC_NEXT_PUBLIC_AUTH_DISCORD_SECRET ?? "";
