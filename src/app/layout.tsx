@@ -7,7 +7,6 @@ import React from "react";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import SignInAuth from "@/components/SignInAuth";
 
 import { ApolloWrapper } from "./ApolloWrapper";
 
@@ -29,7 +28,6 @@ export default function RootLayout({
         <ApolloWrapper>
           <SessionProvider basePath="/api/auth">
             <div className="root--skeleton">
-              <SignInAuth />
               <Header />
               {children}
               <Footer />

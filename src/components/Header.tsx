@@ -2,25 +2,27 @@
 
 import cn from "classnames";
 import Image from 'next/image'
+import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import React, { useEffect } from "react";
+import React from "react";
+import { Unless, When } from "react-if";
 import { usePrevious, useWindowScroll } from "react-use";
 
 import logo from "@/assets/logo--primary.svg";
-import iconDiscord from "@/assets/social--discord.svg";
 import iconX from "@/assets/social--x.svg";
 
-// import { auth } from "@/auth";
 import SignIn from "./SignIn";
-import SignInAuth from "./SignInAuth";
+import SignOut from "./SignOut";
 // import iconWeb from "@/assets/social--web.svg";
 // import iconTelegram from "../assets/social--telegram.svg";
 
 const Header = () => {
-  const { data: session } = useSession();
-  console.log(`🚀 ~ Header ~ session:`, session)
+  const router = useRouter();
+  const { data: session, status } = useSession();
+  console.log(`🚀 ~ Header ~ session:`, session, status)
   const { y } = useWindowScroll();
   const lastYPosition = usePrevious(y);
+  const isLoggedIn = Boolean(session?.user);
 
   return (
     <header>
@@ -61,24 +63,16 @@ const Header = () => {
                       />
                     </a>
                   </li> */}
-                  <li>
-                    {/* <SignInAuth /> */}
-                  </li>
-                  <li>
-                    {/* <SignIn /> */}
-                  </li>
-                  {/* <li>
-                    <a href={urlSSODiscord} className="inline-flex items-center">
-                      <Image
-                        src={iconDiscord}
-                        alt="Discord"
-                        className="block w-[42px]"
-                        height={42}
-                        width={42}
-                      />
-                      <span>Login with Discord</span>
-                    </a>
-                  </li> */}
+                  <Unless condition={isLoggedIn}>
+                    <li>
+                      <SignIn />
+                    </li>
+                  </Unless>
+                  <When condition={isLoggedIn}>
+                    <li>
+                      <SignOut />
+                    </li>
+                  </When>
                   <li>
                     <a
                       href="https://twitter.com/Monluminati"

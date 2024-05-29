@@ -1,8 +1,11 @@
 "use server";
 
-import { signIn } from "@/auth";
+import { signIn,signOut } from "@/auth";
 
 export const signInAction = async () => {
-  const result = await signIn("discord");
-  console.log(`🚀 ~ signInAction ~ result:`, result)
+  await signIn("discord");
+};
+
+export const signOutAction = async () => {
+  await signOut();
 };
