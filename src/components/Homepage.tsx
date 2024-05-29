@@ -3,11 +3,11 @@
 import { gql, useQuery } from "@apollo/client";
 import React, { useState } from "react";
 
-import CardServer from "@/app/components/CardServer";
-import Loader from "@/app/components/Loader";
-import ProjectDetailModal from "@/app/components/ProjectDetailModal";
-import SearchBar from "@/app/components/SearchBar";
-import Sidebar from "@/app/components/Sidebar";
+import CardServer from "@/components/CardServer";
+import Loader from "@/components/Loader";
+import ProjectDetailModal from "@/components/ProjectDetailModal";
+import SearchBar from "@/components/SearchBar";
+import Sidebar from "@/components/Sidebar";
 import useSearchFilters from "@/hooks/useSearchFilters";
 const GET_PROJECTS = gql`
   query Projects {

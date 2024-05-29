@@ -2,6 +2,7 @@
 
 import cn from "classnames";
 import Image from 'next/image'
+import { useSession } from "next-auth/react";
 import React, { useEffect } from "react";
 import { usePrevious, useWindowScroll } from "react-use";
 
@@ -9,12 +10,15 @@ import logo from "@/assets/logo--primary.svg";
 import iconDiscord from "@/assets/social--discord.svg";
 import iconX from "@/assets/social--x.svg";
 
-import SignInAuth from "./auth/SignIn";
+// import { auth } from "@/auth";
 import SignIn from "./SignIn";
+import SignInAuth from "./SignInAuth";
 // import iconWeb from "@/assets/social--web.svg";
 // import iconTelegram from "../assets/social--telegram.svg";
 
 const Header = () => {
+  const { data: session } = useSession();
+  console.log(`🚀 ~ Header ~ session:`, session)
   const { y } = useWindowScroll();
   const lastYPosition = usePrevious(y);
 
@@ -58,7 +62,7 @@ const Header = () => {
                     </a>
                   </li> */}
                   <li>
-                    <SignInAuth />
+                    {/* <SignInAuth /> */}
                   </li>
                   <li>
                     {/* <SignIn /> */}

@@ -2,8 +2,8 @@ import cn from "classnames";
 import React, { useCallback, useState } from "react";
 import { When } from "react-if";
 
-import TabCommunity from "@/app/components/TabCommunity";
-import TabTopContributor from "@/app/components/TabTopContributor";
+import TabCommunity from "@/components/TabCommunity";
+import TabTopContributor from "@/components/TabTopContributor";
 
 const Sidebar = () => {
   const [currentTab, setTab] = useState<string>("community");

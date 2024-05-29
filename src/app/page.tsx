@@ -1,20 +1,21 @@
 import "./App.css";
 
+import { SessionProvider } from "next-auth/react";
 import React from "react";
 
-import Footer from "@/app/components/Footer";
-import Header from "@/app/components/Header";
-import HeroSection from "@/app/components/HeroSection";
+import { auth } from "@/auth";
+import HeroSection from "@/components/HeroSection";
 
-import Homepage from "./components/Homepage";
+import Homepage from "../components/Homepage";
 
-export default function Home() {
+export default async function Index() {
+  const session = await auth();
+  console.log(`🚀 ~ Index ~ session:`, session)
+  
   return (
-    <div className="root--skeleton">
-      <Header />
+    <React.Fragment>
       <HeroSection />
       <Homepage />
-      <Footer />
-    </div>
+    </React.Fragment>
   );
 }
