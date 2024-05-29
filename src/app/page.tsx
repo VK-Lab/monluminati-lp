@@ -49,8 +49,6 @@ export default function Home() {
   const { loading, data } = useQuery(GET_PROJECTS);
   const [currentTab, setTab] = useState<string>("community");
 
-  
-
   const serverProjects = data?.projects ?? [];
   const { searchTerm, setSearchTerm, resultSearch } =
     useSearchFilters(serverProjects);

@@ -1,15 +1,32 @@
 import React from "react";
 
-import { signInAction } from "./signInAction";
+import { signIn } from "@/auth";
 
 function SignIn() {
   return (
-    <form
-      action={signInAction}
+    <button
+      onClick={() => {
+        try {
+          console.log(">>>>> CLICK");
+          const result = signIn("discord");
+          console.log(`🚀 ~ signInAction ~ result:`, result);
+          return result;
+        } catch (error: any) {
+          if (error) {
+            switch (error.type) {
+              case "CredentialsSignin":
+                return "Invalid credentials.";
+              default:
+                return "Something went wrong.";
+            }
+          }
+          throw error;
+        }
+      }}
     >
-      <button type="submit">Signin with Discord</button>
-    </form>
-  )
-} 
+      Sign In
+    </button>
+  );
+}
 
 export default SignIn;
