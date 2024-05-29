@@ -1,4 +1,4 @@
-import "../assets/styles/custom-rte.css";
+import "../../assets/styles/custom-rte.css";
 
 import { DocumentRenderer } from "@keystone-6/document-renderer";
 import cn from "classnames";
