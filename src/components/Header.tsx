@@ -13,7 +13,6 @@ import SignIn from "./SignIn";
 // import iconTelegram from "../assets/social--telegram.svg";
 
 const Header = () => {
-  
   const { y } = useWindowScroll();
   const lastYPosition = usePrevious(y);
 
@@ -60,7 +59,7 @@ const Header = () => {
                     <SignInAuth />
                   </li>
                   <li>
-                    <SignIn />
+                    {/* <SignIn /> */}
                   </li>
                   {/* <li>
                     <a href={urlSSODiscord} className="inline-flex items-center">
