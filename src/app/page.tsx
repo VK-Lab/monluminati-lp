@@ -1,17 +1,16 @@
-"use client";
 import "./App.css";
 
 import { gql, useQuery } from "@apollo/client";
 import React, { useState } from "react";
 
-import CardServer from "@/components/CardServer";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import Loader from "@/components/Loader";
-import ProjectDetailModal from "@/components/ProjectDetailModal";
-import SearchBar from "@/components/SearchBar";
-import Sidebar from "@/components/Sidebar";
+import CardServer from "@/app/components/CardServer";
+import Footer from "@/app/components/Footer";
+import Header from "@/app/components/Header";
+import HeroSection from "@/app/components/HeroSection";
+import Loader from "@/app/components/Loader";
+import ProjectDetailModal from "@/app/components/ProjectDetailModal";
+import SearchBar from "@/app/components/SearchBar";
+import Sidebar from "@/app/components/Sidebar";
 import useSearchFilters from "@/hooks/useSearchFilters";
 
 const GET_PROJECTS = gql`

@@ -1,7 +1,7 @@
 import React from "react";
 import Scrollbars from "react-custom-scrollbars";
 
-import BlockTopContributor, {BlockTopContributorHeader} from "@/components/BlockTopContributor";
+import BlockTopContributor, {BlockTopContributorHeader} from "@/app/components/BlockTopContributor";
 import useFetchTopNads from "@/hooks/useFetchTopNads";
 
 import Loader from "./Loader";
