@@ -2,7 +2,6 @@
 
 import cn from "classnames";
 import Image from 'next/image'
-import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import React from "react";
 import { Unless, When } from "react-if";
@@ -17,12 +16,12 @@ import SignOut from "./SignOut";
 // import iconTelegram from "../assets/social--telegram.svg";
 
 const Header = () => {
-  const router = useRouter();
   const { data: session, status } = useSession();
   console.log(`🚀 ~ Header ~ session:`, session, status)
   const { y } = useWindowScroll();
   const lastYPosition = usePrevious(y);
   const isLoggedIn = Boolean(session?.user);
+  const { user } = session || {};
 
   return (
     <header>
@@ -70,7 +69,19 @@ const Header = () => {
                   </Unless>
                   <When condition={isLoggedIn}>
                     <li>
-                      <SignOut />
+                      <div className="p-1 flex items-center overflow-hidden">
+                        <Image
+                          alt={user?.name!}
+                          src={user?.image!}
+                          width="40"
+                          height="40"
+                          className="h-[40px] w-[40px] rounded-full min-w-[40px] border-2 border-solid border-warning-default border-white/50"
+                        />
+                        <span className="ml-2 text-sm truncate">{user?.name}</span>
+                        <div className="ml-2">
+                          <SignOut />
+                        </div>
+                      </div>
                     </li>
                   </When>
                   <li>
