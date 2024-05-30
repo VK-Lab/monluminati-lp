@@ -10,7 +10,7 @@ function SignIn() {
       <Image
         src={iconDiscord}
         alt="Discord"
-        className="block w-[42px]"
+        className="block w-[42px] relative top-[5px]"
         height={42}
         width={42}
       />

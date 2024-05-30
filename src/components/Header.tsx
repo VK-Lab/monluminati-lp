@@ -1,7 +1,7 @@
 "use client";
 
 import cn from "classnames";
-import Image from 'next/image'
+import Image from "next/image";
 import { useSession } from "next-auth/react";
 import React from "react";
 import { Unless, When } from "react-if";
@@ -17,7 +17,7 @@ import SignOut from "./SignOut";
 
 const Header = () => {
   const { data: session, status } = useSession();
-  console.log(`🚀 ~ Header ~ session:`, session, status)
+  // console.log(`🚀 ~ Header ~ session:`, session, status);
   const { y } = useWindowScroll();
   const lastYPosition = usePrevious(y);
   const isLoggedIn = Boolean(session?.user);
@@ -29,7 +29,7 @@ const Header = () => {
         className={cn(
           "main--navbar fixed transition z-20 w-full bg-[#111113]/90 backdrop-blur navbar shadow-2xl shadow-gray-600/5 border-b border-gray-100 dark:border-gray-800 peer-checked:navbar-active dark:shadow-none",
           {
-            hide: lastYPosition && y > lastYPosition,
+            hide: lastYPosition && y > lastYPosition
           }
         )}
       >
@@ -50,7 +50,7 @@ const Header = () => {
                 ></div>
               </label>
             </div>
-            <div className="navmenu hidden w-full flex-wrap justify-end items-center mb-16 space-y-8 p-6 border border-gray-100 rounded-3xl shadow-2xl shadow-gray-300/20 bg-[111113]/80 lg:space-y-0 lg:p-0 lg:m-0 lg:flex md:flex-nowrap lg:w-7/12 lg:shadow-none dark:shadow-none dark:border-gray-700 lg:border-0">
+            <div className="navmenu hidden w-full flex-wrap justify-end items-center mb-16 space-y-8 p-6 border border-gray-100 rounded-3xl shadow-2xl shadow-gray-300/20 bg-dark/80 lg:space-y-0 lg:p-0 lg:m-0 lg:flex md:flex-nowrap lg:w-7/12 lg:shadow-none dark:shadow-none dark:border-gray-700 lg:border-0">
               <div className="text-gray-600 dark:text-gray-300 lg:pr-4">
                 <ul className="relative top-[5px] space-y-6 tracking-wide font-medium text-base lg:text-sm lg:flex lg:space-y-0 lg:space-x-4">
                   {/* <li>
@@ -69,7 +69,7 @@ const Header = () => {
                   </Unless>
                   <When condition={isLoggedIn}>
                     <li>
-                      <div className="p-1 flex items-center overflow-hidden">
+                      <div className="relative p-1 flex items-center group">
                         <Image
                           alt={user?.name!}
                           src={user?.image!}
@@ -77,9 +77,37 @@ const Header = () => {
                           height="40"
                           className="h-[40px] w-[40px] rounded-full min-w-[40px] border-2 border-solid border-warning-default border-white/50"
                         />
-                        <span className="ml-2 text-sm truncate">{user?.name}</span>
-                        <div className="ml-2">
-                          <SignOut />
+                        <span className="ml-2 text-sm truncate">
+                          {user?.name}
+                        </span>
+                        <div
+                          role="menu"
+                          className="absolute z-10 flex min-w-[180px] flex-col gap-2 overflow-auto rounded-md p-1 font-sans text-sm font-normal shadow-lg shadow-blue-gray-500/10 focus:outline-none top-[100%] right-0 bg-dark group-hover:block hidden"
+                        >
+                          <button
+                            role="menuitem"
+                            className="flex w-full cursor-pointer select-none items-center gap-2 rounded-md px-3 py-2 text-start leading-tight outline-none transition-all"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="2"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                              className="h-4 w-4"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M5.636 5.636a9 9 0 1012.728 0M12 3v9"
+                              ></path>
+                            </svg>
+                            <SignOut />
+                            {/* <p className="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
+                              Sign Out
+                            </p> */}
+                          </button>
                         </div>
                       </div>
                     </li>
