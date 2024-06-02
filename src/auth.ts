@@ -63,7 +63,6 @@ export const { signIn, signOut, auth, handlers } = NextAuth({
     Discord({
       clientId: process.env.AUTH_DISCORD_ID,
       clientSecret: process.env.AUTH_DISCORD_SECRET,
-      redirectProxyUrl: "http://localhost:3555/api/auth",
       authorization: {
         params: {
           scope: "identify email",
