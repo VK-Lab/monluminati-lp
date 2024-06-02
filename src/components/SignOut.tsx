@@ -1,16 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { signOutAction } from "@/app/lib/actions";
-
-function SignOut() {
+function SignOut({ hideText }: { hideText?: boolean }) {
   return (
     <button
       onClick={async () => {
-        await signOutAction();
-        window.location.href = "/";
+        await fetch(`${process.env.NEXT_PUBLIC_API_CMS}/api/auth/logout`, { method: 'POST', credentials: 'include' });
+        window.location.href = '/';
       }}
     >
-      Sign out
+      {!hideText && 'Sign out'}
     </button>
   );
 }

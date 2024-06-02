@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { gql, useQuery } from "@apollo/client";
-import React, { useState } from "react";
+import { gql, useQuery } from '@apollo/client';
+import React, { useState } from 'react';
 
-import CardServer from "@/components/CardServer";
-import Loader from "@/components/Loader";
-import ProjectDetailModal from "@/components/ProjectDetailModal";
-import SearchBar from "@/components/SearchBar";
-import Sidebar from "@/components/Sidebar";
-import useSearchFilters from "@/hooks/useSearchFilters";
+import CardServer from '@/components/CardServer';
+import Loader from '@/components/Loader';
+import ProjectDetailModal from '@/components/ProjectDetailModal';
+import SearchBar from '@/components/SearchBar';
+import Sidebar from '@/components/Sidebar';
+import useSearchFilters from '@/hooks/useSearchFilters';
 const GET_PROJECTS = gql`
   query Projects {
     projects {
@@ -22,6 +22,7 @@ const GET_PROJECTS = gql`
       socialDiscord
       socialTelegram
       socialX
+      votes
       categories {
         name
         id
@@ -40,8 +41,7 @@ const GET_PROJECTS = gql`
 const Homepage = () => {
   const { loading, data } = useQuery(GET_PROJECTS);
   const serverProjects = data?.projects ?? [];
-  const { searchTerm, setSearchTerm, resultSearch } =
-    useSearchFilters(serverProjects);
+  const { searchTerm, setSearchTerm, resultSearch } = useSearchFilters(serverProjects);
   const [isProjectDetailModalOpen, setProjectDetailModal] = useState(false);
   const [currentProjectDetail, setProjectDetail] = useState(null);
   const projects = searchTerm ? resultSearch : serverProjects;
@@ -55,9 +55,7 @@ const Homepage = () => {
     <React.Fragment>
       <div className="section--project-list">
         <div className="px-2 lg:px-6 xl:container mx-auto text-left">
-          <h2 className="mb-10 text-3xl sm:text-[40px] font-semibold color--primary">
-            Into the Nads world
-          </h2>
+          <h2 className="mb-10 text-3xl sm:text-[40px] font-semibold color--primary">Into the Nads world</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="sm:col-span-2">
               <div className="hidden -md:hidden">
@@ -68,10 +66,7 @@ const Homepage = () => {
                 {!loading &&
                   projects?.map((item: any, index: number) => {
                     return (
-                      <div
-                        key={`card--${index}`}
-                        className="rounded rounded-xl"
-                      >
+                      <div key={`card--${index}`} className="rounded rounded-xl">
                         <CardServer
                           data={item}
                           onClick={(e: React.MouseEvent<HTMLElement>) => {

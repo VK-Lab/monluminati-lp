@@ -13,6 +13,7 @@ const QUERY_LEADING_PROJECTS = gql`
         height
         id
       }
+      votes
     }
   }
 `;

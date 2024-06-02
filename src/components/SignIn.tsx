@@ -1,19 +1,16 @@
-import Image from 'next/image'
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
 
-import { signInAction } from "@/app/lib/actions";
-import iconDiscord from "@/assets/social--discord.svg";
+import { signInAction } from '@/app/lib/actions';
+import iconDiscord from '@/assets/social--discord.svg';
 
 function SignIn() {
+  const onSignIn = () => {
+    window.location.href = `${process.env.NEXT_PUBLIC_API_CMS}/api/auth/discord`;
+  };
   return (
-    <form action={signInAction} className="inline-flex items-center">
-      <Image
-        src={iconDiscord}
-        alt="Discord"
-        className="block w-[42px] relative top-[5px]"
-        height={42}
-        width={42}
-      />
+    <form action={onSignIn} className="flex items-center gap-2">
+      <Image src={iconDiscord} alt="Discord" className="block w-7 relative" />
       <button type="submit">Sign in with Discord</button>
     </form>
   );
