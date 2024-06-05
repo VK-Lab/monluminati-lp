@@ -13,6 +13,7 @@ const QUERY_LEADING_PROJECTS = gql`
         height
         id
       }
+      votes
     }
   }
 `;
@@ -31,7 +32,6 @@ const useFetchLeadingProjects = () => {
       take: 5, 
     },
   });
-  console.log(">> : ", data);
 
   return {
     loading,

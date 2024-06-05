@@ -1,16 +1,17 @@
-import cn from "classnames";
-import Image from "next/image";
-import React from "react";
+import cn from 'classnames';
+import { Globe } from 'lucide-react';
+import Image from 'next/image';
+import React from 'react';
 
-import btnClose from "@/assets/btn--close.svg";
-import imgPlaceholder from "@/assets/image--hero.svg";
-import iconDiscord from "@/assets/social--discord.svg";
-import iconTelegram from "@/assets/social--telegram.svg";
-import iconWeb from "@/assets/social--web.svg";
-import iconX from "@/assets/social--x.svg";
+import btnClose from '@/assets/btn--close.svg';
+import imgPlaceholder from '@/assets/image--hero.svg';
+import iconDiscord from '@/assets/social--discord.svg';
+import iconTelegram from '@/assets/social--telegram.svg';
+import iconX from '@/assets/social--x.svg';
 
-import { CustomRenderer } from "./custom-document-render";
-import Modal from "./Modal";
+import { CustomRenderer } from './custom-document-render';
+import Modal from './Modal';
+import { UpVoteButton } from './UpVoteButton';
 
 const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
   const {
@@ -22,9 +23,11 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
     socialX,
     socialWeb,
     name,
-    content: { document }
+    content: { document },
+    id,
+    votes,
   } = project;
-  const { name: category } = categories?.[0] ?? "";
+  const { name: category } = categories?.[0] ?? '';
 
   if (!isOpen) {
     return null;
@@ -33,22 +36,15 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
   return (
     <Modal className="!max-w-[768px] -max-h-[80vh]">
       <div className="flex flex-col">
-        <div className="cover relative z-[1] min-h-[140px] md:min-h-[240px] relative">
+        <div className="cover relative z-[1] min-h-[140px] md:min-h-[240px]">
           <Image
             src={avatar?.url ?? imgPlaceholder}
             alt="image"
-            className="w-full h-[140px] sm:h-[320px] rounded rounded-xl object-cover"
+            className="w-full h-[140px] sm:h-[320px] rounded object-cover"
             fill
           />
-          <button
-            onClick={onClose}
-            className="cursor-pointer btn--close absolute top-4 right-4"
-          >
-            <Image
-              src={btnClose}
-              alt="Close"
-              className="block w-[40px] h-[40px]"
-            />
+          <button onClick={onClose} className="cursor-pointer btn--close absolute top-4 right-4">
+            <Image src={btnClose} alt="Close" className="block w-[40px] h-[40px]" />
           </button>
         </div>
         <div className="body p-4 relative z-[2]">
@@ -84,37 +80,11 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
             </h3>
           </div>
           <div className="flex justify-center md:justify-start items-center gap-x-4 md:absolute md:top-[16px] md:right-[16px] mb-4">
-            <button
-              disabled
-              className="btn--primary flex-col items-center min-w-[120px] text-center"
-            >
-              <span className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Upvote
-              </span>
-              <span className="text-[12px]">(Coming soon)</span>
-            </button>
+            <UpVoteButton id={id} votes={votes} />
+
             {socialDiscord && (
-              <a
-                href={socialDiscord}
-                className="btn--secondary inline-flex text-sm items-center"
-              >
-                <Image
-                  src={iconDiscord}
-                  alt="Discord"
-                  className="block w-[36px] h-[36px] relative top-[3px]"
-                />
+              <a href={socialDiscord} className="btn--secondary inline-flex text-sm items-center">
+                <Image src={iconDiscord} alt="Discord" className="block w-[36px] h-[36px] relative top-[3px]" />
                 <span>Join community</span>
               </a>
             )}
@@ -122,49 +92,34 @@ const ProjectDetailModal = ({ isOpen, project, onClose }: any) => {
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
             <div className="category-wrapper flex justify-center md:justify-start items-center mb-3">
               <span
-                className={cn(
-                  "font-semibold badge-chip border-2 border rounded p-1 leading-none text-xs",
-                  {
-                    "tag--infra": tags === "infra",
-                    "tag--bridge": tags === "bridge",
-                    "tag--dexs": tags === "dexs",
-                    "tag--nft": tags === "nft",
-                    "tag--defi": tags === "defi",
-                    "tag--dao": tags === "dao",
-                    "tag--ai": tags === "ai"
-                  }
-                )}
+                className={cn('font-semibold badge-chip border-2 border rounded p-1 leading-none text-xs', {
+                  'tag--infra': tags === 'infra',
+                  'tag--bridge': tags === 'bridge',
+                  'tag--dexs': tags === 'dexs',
+                  'tag--nft': tags === 'nft',
+                  'tag--defi': tags === 'defi',
+                  'tag--dao': tags === 'dao',
+                  'tag--ai': tags === 'ai',
+                })}
               >
                 {category}
               </span>
             </div>
             <div className="social-links">
-              <div className="flex items-center justify-center md:justify-start">
+              <div className="flex items-center justify-center md:justify-start gap-4 px-2 py-2">
                 {socialWeb && (
                   <a href={socialWeb} className="inline-flex">
-                    <Image
-                      src={iconWeb}
-                      alt="Web"
-                      className="block w-[48px] h-[48px]"
-                    />
+                    <Globe />
                   </a>
                 )}
                 {socialX && (
                   <a href={socialX} className="inline-flex">
-                    <Image
-                      src={iconX}
-                      alt="X"
-                      className="block w-[48px] h-[48px]"
-                    />
+                    <Image src={iconX} alt="X" />
                   </a>
                 )}
                 {socialTelegram && (
                   <a href={socialTelegram} className="inline-flex">
-                    <Image
-                      src={iconTelegram}
-                      alt="Telegram"
-                      className="block w-[48px] h-[48px]"
-                    />
+                    <Image src={iconTelegram} alt="Telegram" />
                   </a>
                 )}
               </div>

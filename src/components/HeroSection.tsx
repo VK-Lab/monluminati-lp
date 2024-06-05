@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useMemo } from "react";
 import React from "react";
@@ -17,10 +19,10 @@ const HeroSection = () => {
         logoURL: project.avatar?.url ?? imgPlaceholder,
         description: project.shortDescription,
         id: project.id
-      }
-    })
+      };
+    });
   }, [data]);
-  
+
   return (
     <div className="relative pt-[60px] pb-[100px] sm:pt-[200px] sm:pb-[200px] min-h-screen sm:min-h-[880px]">
       <div className="relative xl:container m-auto px-6 md:px-12 lg:px-6">

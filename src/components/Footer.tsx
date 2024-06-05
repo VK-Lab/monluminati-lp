@@ -1,11 +1,9 @@
-import Image from "next/image";
-import React from "react";
+import { Globe } from 'lucide-react';
+import Image from 'next/image';
+import React from 'react';
 
-import logo from "@/assets/logo--primary.svg";
-import iconDiscord from "@/assets/social--discord.svg";
-// import iconTelegram from "@/assets/social--telegram.svg";
-import iconWeb from "@/assets/social--web.svg";
-import iconX from "@/assets/social--x.svg";
+import logo from '@/assets/logo--primary.svg';
+import iconX from '@/assets/social--x.svg';
 
 const Footer = () => {
   return (
@@ -20,17 +18,8 @@ const Footer = () => {
           <div className="text-gray-600 dark:text-gray-300 lg:pr-4">
             <ul className="space-y-6 tracking-wide font-medium text-base lg:text-sm lg:flex lg:space-y-0 lg:space-x-4">
               <li>
-                <a
-                  href="monadata.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex"
-                >
-                  <Image
-                    src={iconWeb}
-                    alt="Web"
-                    className="block w-[48px] h-[48px]"
-                  />
+                <a href="monadata.ai" target="_blank" rel="noopener noreferrer" className="inline-flex">
+                  <Globe className="w-7 h-7" />
                 </a>
               </li>
               <li>
@@ -40,11 +29,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="inline-flex"
                 >
-                  <Image
-                    src={iconX}
-                    alt="X"
-                    className="block w-[48px] h-[48px]"
-                  />
+                  <Image src={iconX} alt="X" className="h-7 w-7" />
                 </a>
               </li>
               {/* <li>

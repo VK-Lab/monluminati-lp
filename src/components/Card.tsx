@@ -1,4 +1,5 @@
 import cn from "classnames";
+import { Globe } from "lucide-react";
 import Image from 'next/image'
 import React from "react";
 
@@ -23,7 +24,7 @@ const Card = ({ data, onClick }: any) => {
           <div className="flex items-center">
             {social.website && (
               <a href={social.website} className="inline-flex">
-                <Image src={iconWeb} alt="Web" className="block w-[48px] h-[48px]" />
+                <Globe className="h-12 w-12"/>
               </a>
             )}
             {social.x && (
