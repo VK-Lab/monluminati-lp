@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { signInAction } from '@/app/lib/actions';
 import iconDiscord from '@/assets/social--discord.svg';
 
 function SignIn() {
